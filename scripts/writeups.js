@@ -1,5 +1,5 @@
 async function loadPosts() {
-    const res = await fetch("_site/posts.json");
+    const res = await fetch("/Koles_Portfolio/_site/posts.json");
     if (!res.ok) throw new Error("Failed to load posts.json");
     return await res.json();
 }
@@ -63,7 +63,3 @@ function setupSearch(posts) {
         console.error(err);
     }
 })();
-
-document.querySelectorAll("pre code[class*='language-']").forEach((block) => {
-    block.parentElement.classList.add("line-numbers");
-});
