@@ -165,8 +165,8 @@ body {
     height: fit-content;
 }
 #hImg {
-    width: 50rem;
-    height: 50rem;
+    width: 18vmax;
+    height: 18vmax;
 }
 #meText {
     font-size: 3rem;
