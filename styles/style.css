@@ -110,7 +110,7 @@ body {
     margin-bottom: 2vh;
 }
 #hTitle {
-    font-size: calc(5px + 6rem);
+    font-size: calc(5px + 2vmax);
     line-height: calc(3vh + 1.75vmax);
     font-weight: bolder;
     color: #645995;
