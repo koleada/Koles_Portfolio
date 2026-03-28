@@ -1,0 +1,77 @@
+.hContent {
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    margin: 0;
+    gap: 2vh;
+    font-size: calc(5px + 1.5vmax);
+}
+
+h1 {
+    font-size: calc(5px + 3.5vmax);
+    width: 100%;
+    text-align: center;
+}
+
+pre[class*="language-"] {
+    background: #2d2d2d;
+    border-radius: 12px;
+    overflow: auto;
+    height: fit-content;
+    line-height: 1;
+}
+
+code[class*="language-"] {
+    margin-top: 2vh;
+    line-height: 1;
+}
+
+pre[class*="language-"].line-numbers > code {
+    line-height: 1;
+}
+
+/* set line height for the code itself */
+pre[class*="language-"] code {
+    line-height: 1 !important; /* forces 1, overrides Prism defaults */
+}
+
+/* make line numbers match the code line height */
+pre.line-numbers .line-numbers-rows {
+    line-height: 1 !important;
+}
+
+/* language label on top-left, above line numbers */
+pre[class*="language-"] .lang-label {
+    transform: translate(0, -50%); /* move slightly above the top of the pre */
+    background: #50bfe6;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    margin-top: 1vh;
+    width: fit-content;
+}
+
+.token {
+    font-size: calc(5px + 1vmax);
+}
+
+/* Prism line numbers adjustments */
+pre.line-numbers {
+    padding-left: 3.5em; /* enough space for numbers */
+}
+
+pre[class*="language-"]::-webkit-scrollbar {
+    height: 8px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}

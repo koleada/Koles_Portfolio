@@ -1,0 +1,27 @@
+{
+  "name": "koles_portfolio",
+  "version": "1.0.0",
+  "description": "A website I created to learn about the basics of web development and create a sort of template for later use.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koleada/Koles_Portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/koleada/Koles_Portfolio/issues"
+  },
+  "homepage": "https://github.com/koleada/Koles_Portfolio#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.5"
+  }
+}

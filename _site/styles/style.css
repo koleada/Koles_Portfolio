@@ -1,0 +1,419 @@
+@font-face {
+    font-family: "white-rabbit";
+    src: url("../fonts/whitrabt.woff") format("woff");
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+    padding: 0;
+    margin: 0;
+    font-family: white-rabbit, sans-serif;
+    width: 100vw;
+    background-color: #645995;
+}
+
+.header {
+    background-color: #57aba3;
+    height: fit-content;
+}
+
+#hLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    margin-left: 2vw;
+    text-decoration: none;
+    border-radius: 15px;
+    padding: 1vh 1vw;
+}
+#hLogo:hover {
+    background-color: #645995;
+}
+#hLogo:hover h1 {
+    color: #cccbc8;
+}
+
+#cName {
+    font-size: calc(8px + 1.5vmax);
+    font-weight: bolder;
+    color: #645995;
+    font-family: "white-rabbit", sans-serif;
+    margin: 0;
+}
+#logoImg {
+    height: 6vh;
+    width: 6vh;
+    border-radius: 50%;
+}
+.hLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    text-align: center;
+    margin-right: 2vw;
+}
+
+.toplink {
+    padding: 1vh 1vw;
+    border-radius: 15px;
+    background-color: #57aba3;
+
+    color: #645995;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: calc(5px + 1vmax);
+}
+
+.toplink:hover {
+    background-color: #645995;
+    color: #57aba3;
+}
+
+#contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cccbc8;
+    background-color: #645995;
+    border-radius: 10px;
+    width: 9vw;
+    height: 4vh;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+.hTop {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    background-color: #cccbc8;
+    height: 10.2vh;
+}
+
+#hLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+}
+#hTitle {
+    font-size: calc(5px + 6rem);
+    line-height: calc(3vh + 1.75vmax);
+    font-weight: bolder;
+    color: #645995;
+    margin: 0;
+    font-family: "white-rabbit", "Arial Narrow", Arial, sans-serif;
+    text-align: center;
+    margin-bottom: 2vh;
+}
+.hText {
+    color: #cccbc8;
+    font-size: calc(15px + 1.5vmax);
+    line-height: calc(1.25vh + 1.5vmax);
+}
+.funny {
+    padding-bottom: 10px;
+    color: #cccbc8;
+    font-size: calc(15px + 1.5vmax);
+    line-height: calc(1.25vh + 1.5vmax);
+    text-align: center;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-bottom: 2vh;
+    margin-top: 1vh;
+}
+.hContent {
+    display: flex;
+    gap: 10vh;
+    margin-left: 8vw;
+    margin-right: 8vw;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+#hContactDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+}
+.hContactImg {
+    width: 2vw;
+    height: auto;
+    border-radius: 50%;
+}
+
+#hBtnAndImg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+    height: fit-content;
+}
+#hImg {
+    width: 50rem;
+    height: 50rem;
+}
+#meText {
+    font-size: 3rem;
+    margin-top: 0;
+}
+#hContact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cccbc8;
+    background-color: #645995;
+    border-radius: 10px;
+    width: 21vw;
+    height: 5vh;
+    font-size: 1.5vmax;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+#mainTitle {
+    color: #645995;
+    margin-top: 5vh;
+    text-align: center;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+#companyStuff {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2vh;
+    color: #cccbc8;
+    font-size: calc(5px + 1vmax);
+}
+#myLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+}
+.socialLinks {
+    margin: 1vh;
+    color: #cccbc8;
+    font-size: calc(5px + 1vmax);
+}
+#footer {
+    height: auto;
+    background-color: #50bfe6;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 18px;
+    width: 100vw;
+}
+
+/* Contact styles */
+
+@media (600px < width <= 1024px) {
+    #contact {
+        font-size: calc(2px + 1vmax);
+    }
+    #logoImg {
+        width: 5vmax;
+        height: 5vmax;
+    }
+    .hContent {
+        height: fit-content;
+    }
+    .header {
+        height: auto;
+    }
+    .hTop {
+        padding: 0;
+    }
+    .header {
+        height: auto;
+    }
+    #hLogo {
+        padding: 5px 10px;
+    }
+    #hLeft {
+        justify-content: center;
+        gap: 1vh;
+    }
+    #cName {
+        font-size: calc(5px + 1vmax);
+    }
+    #hImg {
+        width: 30vw;
+        height: auto;
+    }
+    #hContact {
+        width: 15vw;
+    }
+    .hContactImg {
+        width: 3vh;
+        height: auto;
+    }
+    #hContactDiv {
+        gap: 1vw;
+    }
+    .toplink {
+        font-size: calc(8px + 1vmin);
+        padding: 8px;
+    }
+
+    #meText {
+        font-size: 1rem;
+    }
+    #hTitle {
+        font-size: calc(12px + 1vmax);
+        line-height: calc(10px + 2vmax);
+    }
+    #shortExp {
+        font-size: calc(10px + 1.5vmax);
+        line-height: calc(8px + 1.5vmax);
+        text-align: center;
+    }
+    .funny {
+        margin-top: 1vh;
+        font-size: calc(10px + 1.5vmax);
+        line-height: calc(8px + 1.5vmax);
+        text-align: center;
+    }
+    .footer {
+        width: 100vw;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        width: 100vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .hTop {
+        height: 8vh;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #hLogo {
+        padding: 5px 10px;
+    }
+    #cName {
+        margin: 0;
+        font-size: calc(5px + 1vmax);
+    }
+    .hLogo {
+        margin-left: 2vw;
+    }
+    .hLinks {
+        margin-right: 2vw;
+        gap: 1.5vw;
+    }
+    #logoImg {
+        width: 5vh;
+        height: auto;
+    }
+    .toplink {
+        font-size: calc(5px + 1vmin);
+        padding: 5px;
+    }
+    #contact {
+        font-size: calc(5px + 1vmin);
+        margin-right: 2vw;
+    }
+    #meText {
+        font-size: 1rem;
+    }
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: auto;
+    }
+    #hImg {
+        width: 50vw;
+        height: auto;
+    }
+
+    .hContent {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        justify-content: center;
+        margin: 0;
+        gap: 4vh;
+    }
+    #hLeft {
+        height: auto;
+        gap: 2vh;
+    }
+    #hTitle {
+        font-size: calc(15px + 1vmax);
+        line-height: calc(15px + 1vmax);
+        margin-left: 3vw;
+        margin-right: 3vw;
+    }
+    #shortExp {
+        font-size: calc(10px + 1vmax);
+        line-height: calc(10px + 1vmax);
+        margin-left: 3vw;
+        margin-right: 3vw;
+        width: 90vw;
+        text-align: center;
+    }
+    .funny {
+        font-size: calc(10px + 1vmax);
+        line-height: calc(10px + 1vmax);
+        margin-left: 3vw;
+        margin-right: 3vw;
+        width: 90vw;
+        text-align: center;
+    }
+    #hContact {
+        width: 30vw;
+        height: 6vh;
+        font-size: calc(4px + 1vmax);
+        font-weight: bold;
+        text-align: center;
+    }
+    #hBtnAndImg {
+        gap: 2vh;
+        height: auto;
+        margin-bottom: 2vh;
+    }
+
+    .mainTitle {
+        font-size: calc(15px + 1vmax);
+        line-height: calc(15px + 1vmax);
+        margin-top: 2vh;
+    }
+
+    #footer {
+        width: 100%;
+    }
+
+    .funny {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}

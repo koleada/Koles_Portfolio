@@ -1,0 +1,136 @@
+@font-face {
+    font-family: "white-rabbit";
+    src: url("../fonts/whitrabt.woff") format("woff");
+}
+
+.hContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2vh;
+    padding-bottom: 2vh;
+    min-height: 80vh;
+    width: 100%;
+    margin: 0;
+    padding: 1vh 2vw;
+    height: fit-content;
+}
+
+#blogGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2vw;
+
+    max-width: 100vw;
+    margin: 0 auto; /* centers the whole grid */
+    padding: 2vh 2vw;
+    box-sizing: border-box;
+}
+
+.blogCardLink {
+    width: 40vw;
+    box-sizing: border-box;
+    padding: 1vh 1vw;
+    border-radius: 20px;
+    border: 3px solid #645995;
+    background-color: #cccbc8;
+    height: fit-content;
+}
+
+.blogCard {
+    display: flex;
+    justify-content: space-around;
+    min-height: 24vh;
+}
+
+.blogCardBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2vmax;
+    color: #645995;
+    padding: 1vh 1vw;
+    height: auto;
+}
+.titleDate {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+.blogCardImg {
+    height: auto;
+    width: 85%;
+}
+
+#blogSearch {
+    width: 20vw;
+    height: 5vh;
+    font-size: 2vmax;
+    border-radius: 20px;
+}
+
+.blogHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+}
+
+.blogTitle {
+    color: #cccbc8;
+    font-size: calc(5px + 3.5vmax);
+    text-decoration: underline;
+}
+
+.blogCardLink:hover {
+    transform: translateY(-4px);
+    border: 6px solid #50bfe6;
+}
+
+.blogCardTitle {
+    font-size: calc(10px + 2vmax);
+    font-weight: 700;
+    margin: 0;
+}
+
+.blogCardDate {
+    font-size: calc(5px + 1.5vmax);
+    opacity: 0.7;
+    margin-top: 6px;
+}
+
+.blogCardDesc {
+    margin-top: 10px;
+    font-size: calc(5px + 1.25vmax);
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+.blogTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
+    margin-top: 12px;
+}
+
+.blogTag {
+    font-size: calc(5px + 1vmax);
+    padding: 0.5vh 1vw;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid;
+    opacity: 0.9;
+}
+
+.blogCardLink {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+@media (600px < width <= 1024px) {
+}
+
+@media (max-width: 600px) {
+}
