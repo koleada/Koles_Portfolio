@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>OptiWeb-Labs SEO and Web Design</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <script src="script.js" defer></script>
+
+        <style>
+            body{
+                background-color: #57aba3;
+                width: 100vw;
+            }
+            #main{
+                padding-bottom: 5vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background-color: #50BFE6;
+            }
+            #mainHeaderTextAndImg{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 80vw;
+            }
+            #mainHeaderText{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 5vw;
+                width: 100%;
+                margin-bottom: 4vh;
+            }
+            #mainImg{
+                width: 35vw;
+                height: auto;
+            }
+            #textH{
+                font-size: calc(15px + 1.5vmax);
+                line-height: calc(1.5vh + 1.5vmax);
+                color: #645995;
+            }
+            #listDiv{
+                color: #645995;
+                font-size: calc(10px  + .75vmax);
+                margin-left: 5vw;
+                margin-right: 5vw;
+            }
+            #titleH{
+                font-size: calc(20px +3vmax);
+                line-height: calc(3vh + 1.75vmax);
+                color: #645995;
+                margin-bottom: 6vh;
+                margin-top: 6vh;
+            }
+            h1{
+                font-size: calc(22px + 2vmax);
+            }
+            .subListDiv{
+                border: 1px solid;
+                margin: 3vh;
+            }
+            #mainUl{
+                padding: 0;
+                margin: 0;
+            }
+            .mainLi{
+                list-style: none;
+                padding-top: 1vh;
+                padding-left: 1vw;
+            }
+            .subLi{
+                margin-top: 3vh
+            }
+            .mainLi::before{
+                content: "\25B6";
+            }
+            .subUl{
+                list-style: none;
+                padding: 0;
+                padding-right: 1vw;
+                padding-bottom: 1vh;
+                margin: 0;
+                margin-left: 4vw;
+            }
+            .subLi::before{
+                content: "\25B6";
+                opacity: 0.5;  /* Creates a hollow effect */
+            }
+            #contactFormDiv{
+                background-color: #645995;
+            }
+            #contactFormHeader{
+                color: #cccbc8;
+            }
+            #contactForm{
+                color: #cccbc8;
+                padding-top: 2vh;
+            }
+            #businessExp, #taLabel, #radioDiv{
+                width: 50vw;
+            }
+            .footer{
+                width: 100vw;
+            }
+            @media (max-width: 1040px){
+                #titleH{
+                    font-size: calc(13px + 2vmax);
+                    line-height: calc(15px + 2vmax);
+                }
+                #textH{
+                    font-size: calc(8px + 1vmax);
+                    line-height: calc(1.5vh + 1.5vmax);
+                }
+            }
+
+            @media (max-width: 720px){
+                body{
+                    overflow-x: visible;
+                }
+                .hTop{
+                    width: 95vw;
+                }
+                .hLinks{
+                    margin: 0;
+                }
+                #hLogo{
+                    margin-left: 1;
+                }
+                #main{
+                    width: 100vw;
+                }
+                #titleH{
+                    font-size: calc(15px + 1vmax);
+                    line-height: calc(15px + 1vmax);
+                }
+                #textH{
+                    font-size: calc(10px + 1vmax);
+                    line-height: calc(8px + 1vmax);
+                } 
+            }
+            @media (min-width: 320px) and (max-width: 500){
+                #titleH{
+                    font-size: calc(8px + 1vmax);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <div class="hTop">
+            <a id="hLogo" href="index.html">
+                <img src="images/coolLogoGood.jpg" alt="optiWeb Labs logo" id="logoImg">
+                <h1 id="cName">OptiWeb-Labs</h1>
+            </a>
+            <div class="hLinks">
+                <a class="SEO" href="seo.html">SEO</a>
+                <a id="Web Design" href="webdesign.html">Web-Design</a>
+                <a id="newletter" href="newsletter.html">NewsLetter </a>
+                <a href="contact.html" id="contact">Lets Talk</a>
+            </div>
+            </div>
+        </div>
+        <div id="main">
+            <div id="mainHeaderTextAndImg">
+                <div id="titleDiv">
+                    <h1 id="titleH"><u>S.E.O</u> - <u>S</u>earch <u>E</u>ngine <u>O</u>ptimization</h1>
+                </div>
+                <div id="mainHeaderText">
+                    <div id="textH">
+                        SEO makes use of four broad categories of techniques to optimize your website for search engines, ensuring you appear higher for relevant searches. 
+                        This drives organic traffic, the valuable visitors who find you naturally online, boosting your online presence.
+                    </div>
+                    <img src="images/realSeo.png" alt="A cool techy design including an image and computer and growth charts showing the importance of SEO" id="mainImg">
+                </div>
+            </div>
+            <div id="listDiv">
+                <ul id="mainUl">
+                    <div class="subListDiv">
+                        <li class="mainLi">On-site SEO</li>
+                        <ul class="subUl">
+                            <li class="subLi">Keyword Research & Targeting: Identifying relevant keywords and strategically incorporating them into your content</li>
+                            <li class="subLi">High-Quality, Informative Content: Creating valuable and engaging content that fulfills user search intent</li>
+                            <li class="subLi">Content Structure & Readability: Structuring your content with clear headings, subheadings, and bullet points for improved readability and user experience</li>
+                        </ul>
+                    </div>
+                    <div class="subListDiv">
+                        <li class="mainLi">Off-site SEO</li>
+                        <ul class="subUl">
+                            <li class="subLi">Link Building: Acquiring high-quality backlinks from reputable websites to your own. Backlinks act as votes of trust and signal authority to search engines.</li>
+                            <li class="subLi">Brand Mentions: Encouraging positive mentions of your brand name or website online, even if they don't include a direct link. </li>
+                            <li class="subLi">Social Media Engagement: Building a strong social media presence and engaging with your audience on relevant platforms. </li>
+                        </ul>
+                    </div>
+                    <div class="subListDiv">
+                        <li class="mainLi">Technical SEO</li>
+                        <ul class="subUl">
+                            <li class="subLi">Title Tags & Meta Descriptions: Crafting compelling titles as well as informative title tags and meta descriptions</li>
+                            <li class="subLi">Image Optimization: ensuring images are correctly sized, have proper alt descriptions, file size etc</li>
+                            <li class="subLi">Internal Linking: Logical linking structure between website pages and intuitive user navigation</li>
+                            <li class="subLi">Mobile-Friendliness: Ensure the website displays and functions flawlessly on all screen sizes</li>
+                            <li class="subLi">Website Speed: Optimize loading speeds for a better user experience and higher search engine ranking</li>
+                        </ul>
+                    </div>
+                    <div class="subListDiv">
+                        <li class="mainLi">Local SEO</li>
+                        <ul class="subUl">
+                            <li class="subLi">Google My Business Optimization: Claiming and optimizing your Google My Business (GMB) listing is crucial</li>
+                            <li class="subLi">Positive Online Reviews: Encouraging satisfied customers to leave positive reviews on platforms like Google My Business, Yelp, and other relevant local review sites</li>
+                            <li class="subLi">Localized Content Creation: Developing content that targets local keywords and addresses local needs is vital</li>
+                        </ul>
+                    </div>
+                </ul>
+            </div>
+
+        </div>
+
+        <div id="contactFormDiv">
+            *******Make Sure Form Works*********<form action="https://api.slapform.com/optiweblabs@gmail.com?slap_redirect=************************************************************************************************" method="post" id="contactForm">
+              <input type="text" name="slap_honey" hidden>
+              <h2 id="contactFormHeader">Ready to Supercharge Your Website? Request a free SEO & web design consultation</h2>
+              <div id="contactName">
+                <label for="name" class="normalLabel">Name:</label>
+                <input type="text" name="name" pattern="[A-Za-z]" id="name" maxlength="64" placeholder="John Doe">
+              </div>
+              <div id="email">
+                <label for="email" class="normalLabel">Email:</label>
+                <input type="email" name="email" id="email" placeholder="example@example.com" required>
+              </div> 
+              <div id="radioDiv">
+                <label id="radioText">Master SEO & web design strategies. Expert tips, straight to your inbox monthly. Ready to level up?</label>
+                  <div id="radioY">
+                    <label for="yes">
+                      <input type="radio" class="newsletter" name="newsletter" required checked="checked">
+                      Yes
+                    </label>
+                  </div>
+                  <div id="radioN">
+                    <label for="no">
+                      <input type="radio" class="newsletter" pattern="[A-Za-z0-9]{10}" name="newsletter">
+                      I don't enjoy learning
+                    </label>
+                  </div>
+              </div> 
+              <div id="textAreaDiv">
+                <label for="businessExp" id="taLabel">
+                  Tell us about your business! Briefly describe your offerings and what you hope to achieve
+                   through SEO and web design:
+                </label>
+                <textarea name="businessExp" id="businessExp" cols="60" rows="10" placeholder="I own an Italian restaurant right here in Dutchess County. I aim to create a beautiful, fully custom webpage to showcase our fantastic food. The webpage must work perfectly on all devices and our goal is to increase awareness and popularity. We would like to do some basic search engineoptimization to increase traffic, especially from people in our geographic area."></textarea>  
+              </div>
+              <button id="submitBtn" type="submit">Submit</button>
+            </form>
+        </div>
+        <div id="footer">
+            <div id="companyStuff">
+              <div>Dutchess County, NY</div>
+              <div>© 2024 OptiWeb-Labs.All rights reserved.</div>
+            </div>
+            <div id="companyLinks">
+              <a href="https://www.linkedin.com/company/optiweb-labs/" class="socialLinks">LinkedIn</a>
+              <a href="https://github.com/koleada?tab=repositories" class="socialLinks">Github</a>
+              <a href="https://twitter.com/OptiWebLabs" class="socialLinks">X</a>
+              <a href="https://www.instagram.com/optiweb_labs/" class="socialLinks">Instagram</a>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OptiWeb-Labs SEO and Web Design</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <script src="script.js" defer></script>
+    <style>
+        #main{
+            height: 80vh;
+            background-color: #645995;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .hTop{
+          height: 8vh;
+        }
+        .header{
+          width: 100%;
+        }
+        #titleH{
+            margin: 0;
+            padding: 4vh;
+            color: #cccbc8;
+            font-size: calc(10px + 4vmax);
+            line-height: calc(3vh + 1vmax);
+            text-align: center;
+            margin-bottom: 3vh;
+            width: 80vw;
+        }
+        #mainTextH{
+          color: #cccbc8;
+          font-size: calc(10px + 2vmax);
+          line-height: calc(10px + 2vmax);
+          margin-left: 5vw;
+          margin-right: 5vw;
+        }
+        #newsletterForm{
+           padding: 0;
+           height: 50vh;
+        }
+        #contactForm{
+          background-color: #57aba3;
+          padding-top: 2vh;
+          padding-bottom: 2vh;
+          margin-right: 5vw;
+          justify-content: center;
+          border-radius: 10px;
+          align-items: flex;
+          height: 100%;
+        }
+        #textAndForm{
+          display: flex;
+          justify-content: center;
+        }
+        #email{
+            margin-bottom: 3vh;
+        }
+        #radioText{
+            margin-bottom: 4vh;
+        }
+        #radioY{
+            margin-bottom: 2vh;
+        }
+        @media (max-width: 1024px){
+          #textAndForm{
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
+          #main{
+            height: auto;
+          }
+          #contactForm{
+            margin: 0;
+            padding-top: 2vh;
+            padding-bottom: 2vh;
+            padding-left: 4vw;
+            padding-right: 4vw;
+          }
+          #newsletterForm{
+            width: 70vw;
+            margin-right: 0;
+            margin-top: 5vh;
+            margin-bottom: 10vh;
+          }
+          #mainTextH{
+            margin-left: 0;
+            margin-right: 0;
+            font-size: calc(5px + 1.5vw);
+            margin-left: 2vw;
+            margin-right: 2vw;
+            text-align: center;
+            width: 80vw;
+
+          }
+        }
+
+    </style>
+  </head>
+  <body>
+    <div class="header">
+        <div class="hTop">
+          <a id="hLogo" href="contact.html">
+            <img src="images/coolLogoGood.jpg" alt="optiWeb Labs logo" id="logoImg">
+            <h1 id="cName">OptiWeb-Labs</h1>
+          </a>
+          <div class="hLinks">
+            <a class="SEO" href="seo.html">SEO</a>
+            <a id="Web Design" href="webdesign.html">Web-Design</a>
+            <a id="newletter" href="newsletter.html">NewsLetter </a>
+            <a href="contact.html" id="contact">Lets Talk</a>
+          </div>
+        </div>
+    </div>
+        <div id="main">
+          <div id="title">
+            <h1 id="titleH">OptiWeb-Labs Newsletter</h1>
+          </div>
+          <div id="textAndForm">
+            <div id="mainTextDiv">
+                <h2 id="mainTextH">Stay Ahead of the Curve: Sign Up for Monthly SEO & Web Design Tips From The OptiWeb-Labs Newsletter</h1>
+            </div>
+            <div id="newsletterForm">
+                *******Make Sure Form Works*********<form action="https://api.slapform.com/optiweblabs@gmail.com?slap_redirect=************************************************************************************************" method="post" id="contactForm">
+                <div id="email">
+                    <label for="email" class="normalLabel">Email:</label>
+                    <input type="email" name="email" id="emailInput" placeholder="example@example.com" required>
+                </div> 
+                <div id="radioDiv">
+                    <label id="radioText">Master SEO & web design strategies. Expert tips, straight to your inbox monthly. Ready to level up?</label>
+                    <div id="radioY">
+                        <label for="yes">
+                        <input type="radio" class="newsletter" name="newsletter" required checked="checked">
+                        Yes
+                        </label>
+                    </div>
+                    <div id="radioN">
+                        <label for="no">
+                        <input type="radio" class="newsletter" pattern="[A-Za-z0-9]{10}" name="newsletter">
+                        I don't enjoy learning
+                        </label>
+                    </div>
+                </div>
+                </div>
+            </div>
+          </div>
+        <div id="footer">
+            <div id="companyStuff">
+              <div>Dutchess County, NY</div>
+              <div>© 2024 OptiWeb-Labs.All rights reserved.</div>
+            </div>
+      
+            <div id="companyLinks">
+              <a href="https://www.linkedin.com/company/optiweb-labs/" class="socialLinks">LinkedIn</a>
+              <a href="https://github.com/koleada?tab=repositories" class="socialLinks">Github</a>
+              <a href="https://twitter.com/OptiWebLabs" class="socialLinks">X</a>
+              <a href="https://www.instagram.com/optiweb_labs/" class="socialLinks">Instagram</a>
+            </div>
+          </div>
+  </body>

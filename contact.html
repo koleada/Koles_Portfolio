@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiWeb-Labs SEO and Web Design</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #body{
+            height: auto;
+        }
+        
+       #contactFormDiv{
+        margin-top: 5vh;
+        margin-bottom: 5vw;
+        margin-right: 0;
+        margin-left: 0;
+       } 
+
+       #contactForm{
+         padding-top: 2vh;
+         padding-bottom: 2vh;
+         padding-left: 5vw;
+         padding-right: 5vw;
+         height: auto;
+         width: 40vw;
+       }
+       #textAndForm{
+        display: flex;
+        justify-content: space-around;
+      }
+      #letsTalkTitle{
+        font-size: calc(20px + 3vmax);
+        line-height: calc(3vh + 1.75vmax);
+        margin-top: 0;
+        color: #50BFE6;
+      }
+      #contactText{
+        margin-top: 5vh;
+        width: 40vw;
+      
+      }
+      #mainText{
+        font-size: calc(10px + 1vmax);
+        line-height: calc(10px + 1vmax);
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+        color: #cccbc8;
+      }
+       
+       #footer{
+        width: 100vw;
+       }
+       @media (600px < width <= 1024px){
+            #businessExp{
+                width: 30vw;
+            }
+            
+        }
+        @media (max-width: 600px){
+            .hTop{
+                width: 100%;
+            }
+            #textAndForm{
+                flex-direction: column-reverse;
+                justify-content: center;
+                align-items: center;
+                height: fit-content;
+            }
+            #contactFormDiv{
+                width: 70vw;
+            }
+            #contactText{
+                width: 70vw;
+                margin-right: 3vw;
+                text-align: center;
+            }
+            #footer{
+                width: 100%;
+            }
+       }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="hTop">
+          <a id="hLogo" href="contact.html">
+            <img src="images/coolLogoGood.jpg" alt="optiWeb Labs logo" id="logoImg">
+            <h1 id="cName">OptiWeb-Labs</h1>
+          </a>
+          <div class="hLinks">
+            <a class="SEO" href="seo.html">SEO</a>
+            <a id="Web Design" href="webdesign.html">Web-Design</a>
+            <a id="newletter" href="newsletter.html">NewsLetter </a>
+            <a href="contact.html" id="contact">Lets Talk</a>
+          </div>
+        </div>
+    </div>
+    <div id="textAndForm">
+        <div id="contactFormDiv">
+            *******Make Sure Form Works*********<form action="https://api.slapform.com/optiweblabs@gmail.com?slap_redirect=************************************************************************************************" method="post" id="contactForm">
+            <input type="text" name="slap_honey" hidden>
+            <!-- <h2 id="contactFormHeader">Ready to Supercharge Your Website? Request a free SEO & web design consultation</h2> -->
+            <div id="contactName">
+                <label for="name" class="normalLabel">Name:</label>
+                <input type="text" name="name" pattern="[A-Za-z]" id="name" maxlength="64" placeholder="John Doe">
+            </div>
+            <div id="email">
+                <label for="email" class="normalLabel">Email:</label>
+                <input type="email" name="email" id="email" placeholder="example@example.com" required>
+            </div> 
+            <div id="radioDiv">
+                <label id="radioText">Master SEO & web design strategies. Expert tips, straight to your inbox monthly. Ready to level up?</label>
+                <div id="radioY">
+                    <label for="yes">
+                    <input type="radio" class="newsletter" name="newsletter" required checked="checked">
+                    Yes
+                    </label>
+                </div>
+                <div id="radioN">
+                    <label for="no">
+                    <input type="radio" class="newsletter" pattern="[A-Za-z0-9]{10}" name="newsletter">
+                    I don't enjoy learning
+                    </label>
+                </div>
+            </div> 
+            <div id="textAreaDiv">
+                <label for="businessExp" id="taLabel">
+                Tell us about your business! Briefly describe your offerings and what you hope to achieve
+                through SEO and web design:
+                </label>
+                <textarea name="businessExp" id="businessExp" cols="60" rows="10" placeholder="I own an Italian restaurant right here in Dutchess County. I aim to create a beautiful, fully custom webpage to showcase our fantastic food. The webpage must work perfectly on all devices and our goal is to increase awareness and popularity. We would like to do some basic search engineoptimization to increase traffic, especially from people in our geographic area."></textarea>  
+            </div>
+            <button id="submitBtn" type="submit">Submit</button>
+            </form>
+        </div>
+        <div id="contactText">
+            <h1 id="letsTalkTitle">Let's Talk</h1>
+            <div id="mainText">
+                At OptiWeb-Labs, we strive not only to grow your company's online presence, but also become apart of your company. Becoming immersed within your company is the only way to truly design a website to best align with your specific aesthetic and values. Setup a 30 minute conversation for us to learn more about your project. 
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="companyStuff">
+          <div>Dutchess County, NY</div>
+          <div>© 2024 OptiWeb-Labs.All rights reserved.</div>
+        </div>
+        <div id="companyLinks">
+          <a href="https://www.linkedin.com/company/optiweb-labs/" class="socialLinks">LinkedIn</a>
+          <a href="https://github.com/koleada?tab=repositories" class="socialLinks">Github</a>
+          <a href="https://twitter.com/OptiWebLabs" class="socialLinks">X</a>
+          <a href="https://www.instagram.com/optiweb_labs/" class="socialLinks">Instagram</a>
+        </div>
+    </div>
+</body>
+</html>

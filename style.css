@@ -1,0 +1,654 @@
+@font-face {
+  font-family: "white-rabbit";
+  src: url("fonts/whitrabt.woff") format("woff");
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+  padding: 0;
+  margin: 0;
+  font-family:  white-rabbit, sans-serif;
+  width: 100vw;
+  background-color: #645995;
+}
+
+
+.header{
+  background-color: #57aba3;
+}
+
+#hLogo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+  margin-left: 2vw;
+  text-decoration: none;
+}
+
+#cName{
+  font-size: calc(5px + 1.5vmax);
+  font-weight: bold;
+  color: #645995;
+  font-family: 'white-rabbit',sans-serif;
+  margin: 0;
+}
+#logoImg{
+  height: 4.5vmax;
+  width: 4.5vmax;
+  border-radius: 50%;
+}
+.hLinks{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+  text-align: center;
+  margin-right: 2vw;
+}
+a{
+  color: #645995;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+#contact{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cccbc8;
+  background-color: #645995;
+  border-radius: 10px;
+  width: 9vw;
+  height: 4vh;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+.hTop {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  background-color: #cccbc8;
+  height: 10.2vh;
+}
+
+
+
+#hLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 70vh;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+#hTitle{
+  font-size: calc(20px + 2.5vmax);
+  line-height: calc(3vh + 1.75vmax);
+  font-weight: bolder;
+  color: #645995;
+  margin: 0;
+  font-family: 'white-rabbit', 'Arial Narrow', Arial, sans-serif;
+}
+.hText {
+  color: #cccbc8;
+  font-size: calc(15px + 1.5vmax);
+  line-height: calc(1.25vh + 1.5vmax);
+}
+.hContent {
+  display: flex;
+  gap: 10vh;
+  margin-left: 8vw;
+  margin-right: 8vw;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  height: 80vh;
+}
+#hContactDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+}
+.hContactImg{
+  width: 2vw;
+  height: auto;
+  border-radius: 50%;
+}
+
+#hBtnAndImg{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5vh;
+  height: 60vh;
+}
+#hImg {
+  width: calc(200px + 10vw);
+  height: auto;
+  
+}
+#hContact{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cccbc8;
+  background-color: #645995;
+  border-radius: 10px;
+  width: 21vw;
+  height: 5vh;
+  font-size: 1.5vmax;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+#mainTitle {
+  color: #645995;
+  margin-top: 5vh;
+  text-align: center;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+#mainTitleh2{
+  font-size: calc(10px + 1.75vmax);
+}
+#quadContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #50BFE6; 
+}
+
+.quadImg {
+  width: 25vw;
+  height: auto;
+  border-radius: 8px;
+  border: 3px solid black;
+  
+}
+.mainImgText{
+  width: 25vw;
+  color: #cccbc8;
+  font-size: calc(5px + 1vmax);
+}
+#imgCont {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 5vh;
+  margin-bottom: 10vh;
+  gap: 10vh;
+}
+
+.secondCont{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20vw;
+  width: 100vw;
+}
+
+.imgDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  text-wrap: wrap;
+  text-align: center;
+  gap: 1.5vh;
+}
+
+
+
+#meetTheCeo {
+  width: 100%;
+  background-color: #cccbc8;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  height: auto;
+}
+#innerAboutMe { 
+  font-size: 36px;
+  font-style: italic;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+}
+#aboutTitle{ 
+  margin-top: 0;
+  margin-bottom: 10vh;
+  color: #645995;
+  text-align: center;
+  font-size: calc(10px+3vmax)
+}
+#aboutTitleAndImg{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 5vw;
+  gap: 8vh;
+}
+#aboutMeImg{
+  width: 30vw;
+  height: 35vw;
+  border-radius: 5%;
+  border: 3px solid black;}
+#aboutMeText{
+  width: 40vw;
+  font-size: calc(10px + 1.25vmax);
+  line-height: calc(10px + 1vmax);
+  text-align: center;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  padding-left: 5vw;
+  padding-right: 2vw;
+  margin-right: 5vw;
+}
+
+
+
+#contactFormDiv {
+  background-color: #50BFE6;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1vmax;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  margin-left: 5vw;
+  margin-right: 5vw; 
+}
+
+#contactForm{
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+
+
+
+#contactFormHeader{
+  color: #645995;
+  width: 75vw;
+  font-size: calc(10px + 2vmax);
+  line-height: calc(10px + 2vmax);
+  text-align: center;
+}
+#contactName{
+  display: flex;
+  gap: 2vw;
+}
+#email{
+  display: flex;
+  gap: 1vw;
+}
+.normalLabel {
+  font-size: calc(10px + .75vmax);
+}
+#radioText{
+  font-size: calc(10px + .5vmax);
+  line-height: calc(5px + .75vmax);
+}
+
+#radioDiv{
+  width: 30vw;
+  font-size: calc(10px + .5vmax);
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  
+}
+
+#textAreaDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 30vw;
+}
+#taLabel{
+  font-size: calc(10px + .5vmax);
+  line-height: calc(5px + .75vmax);
+}
+#businessExp{
+  width: 30vw;
+}
+
+#submitBtn{
+  width: 8vw;
+  height: 4vh;
+  border-radius: 1vw;
+  font-weight: bold;
+  font-family: white-rabbit, sans-serif;
+  font-size: 1vmax;
+  text-align: center;
+  cursor: pointer;
+}
+
+#companyStuff{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2vh;
+  color: #cccbc8;
+  font-size: calc(5px + 1vmax);
+}
+#companyLinks{
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+.socialLinks{
+  margin: 1vh;
+  color: #cccbc8;
+  font-size: calc(5px + 1vmax);
+}
+#footer {
+  height: auto;
+  background-color: #57aba3;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 18px;
+  width: 100vw;
+}
+
+/* Contact styles */
+
+
+
+
+@media (600px < width <= 1024px) {
+
+  a{
+    font-size: calc(5px + 1vmax);
+  }
+  #contact{
+    font-size: calc(2px + 1vmax);
+  }
+  #logoImg{
+    width: 5vmax;
+    height: 5vmax;
+  }
+  .hContent{
+    height: auto;
+  }
+  #hLeft{
+    justify-content: center;
+    gap: 1vh;
+  }
+  #hImg{
+    width: 30vw;
+    height: auto;
+  }
+  #hContact{
+    width: 15vw;
+  }
+  .hContactImg{
+    width: 3vh;
+    height: auto;
+  }
+  #hContactDiv{
+    gap: 1vw;
+  }
+  #hTitle{
+    font-size: calc(12px + 2vmax);
+    line-height: calc(10px + 2vmax);
+  }
+  #shortExp{
+    font-size: calc(10px + 1.5vmax);
+    line-height: calc(8px + 1.5vmax);
+  }
+  #aboutTitle{
+    margin-bottom: 2vh;
+  }
+  #aboutTitleAndImg{
+    gap: 5vh;
+    justify-content: flex-start;
+  }
+  #aboutMeImg{
+    margin-bottom: 5vh;
+  }
+  #contactForm{
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  #contactFormHeader{
+    text-align: center;
+  }
+  #taLabel{
+    line-height: calc(5px + 1vmax);
+    margin-bottom: 1vh;
+  }
+  #radioText{
+    line-height: calc(5px + 1vmax);
+  }
+  #radioN{
+    width: 50vw;
+  }
+  #businessExp{
+    width: 50vw;
+  }
+  #submitBtn{
+    width: 10vw;
+  }
+  .footer{
+    width: 100vw;
+  }
+}
+
+
+@media (max-width: 600px){
+  body{
+    width: 100vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .hTop{
+    height: 8vh;
+    width: 100%;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+  #cName{
+    margin: 0;
+    font-size: calc(5px + 1vmax);
+  }
+  .hLogo{
+    margin-left: 2vw;
+  }
+  .hLinks{
+    margin-right: 2vw;
+    gap: 1.5vw;
+  }
+  #logoImg{
+    width: 5vh;
+    height: auto;
+  }
+  a{
+    font-size: calc(5px + 1vmin);
+  }
+  #contact{
+    font-size: calc(5px + 1vmin);
+    margin-right: 2vw;
+  }
+  .header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  #hImg{
+    width: 50vw;
+    height: auto;
+  }
+  .hContent{
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    justify-content: center;
+    margin: 0;
+    gap: 4vh;
+  }
+  #hLeft{
+    height: auto;
+    gap: 2vh;
+  }
+  #hTitle{
+    font-size: calc(15px + 1vmax);
+    line-height: calc(15px + 1vmax);
+    margin-left: 3vw;
+    margin-right: 3vw;
+  }
+  #shortExp{
+    font-size: calc(10px + 1vmax);
+    line-height: calc(10px + 1vmax);
+    margin-left: 3vw;
+    margin-right: 3vw;
+    width: 90vw;
+  }
+  #hContact{
+    width: 30vw;
+    height: 6vh;
+    font-size: calc(4px + 1vmax);
+    font-weight: bold;
+    text-align: center;
+  }
+  #hBtnAndImg{
+    gap: 2vh;
+    height: auto;
+    margin-bottom: 2vh;
+  }
+
+  .mainTitle{
+    font-size: calc(15px + 1vmax);
+    line-height: calc(15px + 1vmax);
+    margin-top: 2vh;
+  }
+  .secondCont{
+    flex-direction: column;
+    gap: 8vh;
+  }
+  .quadImg{
+    width: 50vw;
+    height: auto;
+  }
+  .mainImgText{
+    width: 50vw;
+  }
+
+
+  #meetTheCeo{
+    height: auto;
+  }
+  #aboutTitle{
+    margin: 0;
+    font-size: calc(20px + 1.25vmax);
+    line-height: calc(15px + 1vmax);
+  }
+  #innerAboutMe{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #aboutMeText{
+    font-size: calc(5px + 1vmax);
+    text-align: center;
+    padding-left: 0;
+    margin-left: 0;
+    padding-right: 0;
+    margin-right: 0;
+
+  }
+  #aboutTitleAndImg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    gap: 5vh;
+  }
+
+  #contactForm{
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.5vmax;
+    padding-left: 2vw;
+    padding-right: 2vw;
+
+  }
+  #contactFormDiv{
+    width: 70vw;
+  }
+  #contactFormHeader{
+    font-size: calc(10px + 1vmax);
+    line-height: calc(15px + 1vmax);
+    text-align: center;
+    width: auto;
+  }
+  .normalLabel{
+    font-size: calc(5px + 1vmax);
+  }
+  #taLabel{
+    line-height: calc(7px + 1vmax);
+  }
+  #radioText{
+    line-height: calc(7px + 1vmax);
+  }
+  #radioY, #radioN{
+    font-size: calc(5px + .75vmax);
+    width: 50vw;
+  }
+  #name, #email{
+    width: 35vw;
+    font-size: calc(5px + 1vmax);
+  }
+  #businessExp{
+    width: 50vw;
+  }
+  #submitBtn{
+    width: 20vw;
+    height: 4vh;
+    font-size: calc(4px + 1vmax);
+  }
+
+  .footer{
+    width: 100vw;
+  }
+
+  
+}
