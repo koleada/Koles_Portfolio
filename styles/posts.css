@@ -13,6 +13,10 @@
     max-width: 100%;
 }
 
+.hContent pre {
+    font-size: calc(5px + 1vmax);
+}
+
 h1 {
     font-size: calc(5px + 3.5vmax);
     width: 100%;
@@ -26,6 +30,7 @@ pre[class*="language-"] {
     height: fit-content;
     line-height: 1 !important; /* forces single spacing */
     margin: 0;
+    font-size: calc(5px + 1vmax) !important;
 }
 
 code[class*="language-"] {
@@ -33,13 +38,12 @@ code[class*="language-"] {
 }
 
 pre {
-    width: 80% !important;
+    width: fit-content !important;
 }
 
 /* set line height for the code itself */
 pre[class*="language-"] code {
     line-height: 1 !important; /* forces 1, overrides Prism defaults */
-    font-size: calc(5px + 1vmax);
 }
 
 /* language label on top-left, above line numbers */
@@ -47,7 +51,7 @@ pre[class*="language-"] .lang-label {
     transform: translate(0, -50%); /* move slightly above the top of the pre */
     background: #50bfe6;
     color: #fff;
-    font-size: 0.75rem;
+    font-size: calc(5px + 1vmax);
     font-weight: bold;
     padding: 2px 8px;
     border-radius: 8px;
