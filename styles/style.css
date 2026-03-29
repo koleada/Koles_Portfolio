@@ -165,11 +165,11 @@ body {
     height: fit-content;
 }
 #hImg {
-    width: 18vmax;
-    height: 18vmax;
+    width: 22vmax;
+    height: 22vmax;
 }
 #meText {
-    font-size: 3rem;
+    font-size: calc(15px + 1.5vmax);
     margin-top: 0;
 }
 #hContact {
