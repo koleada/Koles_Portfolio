@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "white-rabbit";
+    src: url("../fonts/whitrabt.woff") format("woff");
+}
+
 .hContent {
     display: flex;
     flex-direction: column;
@@ -38,7 +43,7 @@ code[class*="language-"] {
 }
 
 pre {
-    width: fit-content !important;
+    width: 60% !important;
 }
 
 /* set line height for the code itself */
