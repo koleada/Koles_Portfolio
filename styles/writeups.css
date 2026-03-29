@@ -42,22 +42,31 @@ body {
     border: 3px solid #645995;
     background-color: #cccbc8;
     height: fit-content;
+    text-decoration: none;
 }
 
 .blogCard {
     display: flex;
     justify-content: space-around;
     min-height: 24vh;
+    gap: 1vw;
+    width: 100%;
+}
+
+.blogImgDiv {
+    width: 60%;
+    margin-right: 1vw;
 }
 
 .blogCardBody {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 2vmax;
+    gap: 1vh;
     color: #645995;
-    padding: 1vh 1vw;
     height: auto;
+    width: 80%;
+    margin-left: 1vw;
 }
 .titleDate {
     display: flex;
@@ -66,7 +75,6 @@ body {
 }
 .blogCardImg {
     height: auto;
-    width: 85%;
 }
 
 #blogSearch {
@@ -96,15 +104,15 @@ body {
     align-items: center;
 
     width: 100%;
+    height: 2vh;
     max-width: 700px;
     padding: 12px 18px;
 
-    border-radius: 14px;
+    border-radius: 15px;
     border: 2px solid rgba(80, 191, 230, 0.6);
 
     background: rgba(15, 15, 20, 0.95);
     box-shadow: 0 0 18px rgba(80, 191, 230, 0.2);
-
     transition:
         border 0.2s ease,
         box-shadow 0.2s ease;
@@ -116,7 +124,6 @@ body {
 }
 .searchPrompt {
     font-family: monospace;
-    font-size: 1.4rem;
     font-weight: bold;
     color: #57aba3;
     opacity: 0.9;
@@ -150,20 +157,20 @@ body {
 }
 
 .blogCardTitle {
-    font-size: calc(10px + 2vmax);
+    font-size: calc(10px + 1vmax);
     font-weight: 700;
     margin: 0;
 }
 
 .blogCardDate {
-    font-size: calc(5px + 1.5vmax);
+    font-size: calc(5px + 1vmax);
     opacity: 0.7;
-    margin-top: 6px;
+    margin-top: 0;
 }
 
 .blogCardDesc {
     margin-top: 10px;
-    font-size: calc(5px + 1.25vmax);
+    font-size: calc(5px + 1vmax);
     opacity: 0.9;
     line-height: 1.4;
 }
@@ -172,22 +179,16 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 1vw;
-    margin-top: 12px;
 }
 
 .blogTag {
     font-size: calc(5px + 1vmax);
     padding: 0.5vh 1vw;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.1);
+    background: #645995;
     border: 1px solid;
-    opacity: 0.9;
-}
-
-.blogCardLink {
-    display: block;
-    color: inherit;
-    text-decoration: none;
+    opacity: 0.8;
+    color: #cccbc8;
 }
 
 @media (600px < width <= 1024px) {
@@ -195,8 +196,7 @@ body {
         display: flex;
         flex-direction: column;
     }
-    .blogCardLink,
-    .blogCard {
+    .blogCardLink {
         width: 60vw;
     }
 
@@ -204,11 +204,17 @@ body {
         height: 5vh;
         font-size: calc(10px + 1vmax);
     }
+
+    #blogSearch {
+        font-size: calc(5px + 1vmax);
+    }
     .searchPrompt {
         font-size: calc(10px + 1vmax);
+        font-weight: bolder;
     }
     .blogSearchWrap {
-        height: 5vh;
+        font-size: calc(10px + 1vmax);
+        height: 1vh;
     }
 }
 
@@ -216,10 +222,11 @@ body {
     #blogGrid {
         display: flex;
         flex-direction: column;
+        margin-left: 0;
+        align-items: center;
     }
-    .blogCardLink,
-    .blogCard {
-        width: 70vw;
+    .blogCardLink {
+        width: 80%;
         text-align: left;
     }
     .hContent {
@@ -231,21 +238,23 @@ body {
     }
 
     #blogSearch {
-        height: 5vh;
         font-size: calc(5px + 1vmax);
     }
     .searchPrompt {
-        font-size: calc(10px + 1vmax);
+        font-size: calc(8px + 1vmax);
+        font-weight: bolder;
     }
     .blogSearchWrap {
         font-size: calc(10px + 1vmax);
-        height: 5vh;
+        height: 1vh;
+    }
+    .blogCardImg {
+        width: 100%;
     }
 
     .blogCardBody {
         font-size: calc(5px + 1vmax);
         gap: 1vmax;
-        margin-right: 1vw;
     }
     .blogCardTitle {
         font-size: calc(10px + 1vmax);
