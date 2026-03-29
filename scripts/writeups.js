@@ -1,5 +1,7 @@
 async function loadPosts() {
-    const res = await fetch("/Koles_Portfolio/_site/posts.json");
+    const res = await fetch(
+        "https://koleada.github.io/Koles_Portfolio/_site/posts.json"
+    );
     if (!res.ok) throw new Error("Failed to load posts.json");
     return await res.json();
 }

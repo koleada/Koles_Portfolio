@@ -1,6 +1,7 @@
 @font-face {
     font-family: "white-rabbit";
-    src: url("../fonts/whitrabt.woff") format("woff");
+    src: url("https://koleada.github.io/Koles_Portfolio/fonts/whitrabt.woff")
+        format("woff");
 }
 
 body {
