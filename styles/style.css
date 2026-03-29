@@ -26,7 +26,6 @@ body {
     justify-content: center;
     align-items: center;
     gap: 2vw;
-    margin-left: 2vw;
     text-decoration: none;
     border-radius: 15px;
     padding: 1vh 1vw;
@@ -243,9 +242,6 @@ body {
     .header {
         height: auto;
     }
-    .hTop {
-        padding: 0;
-    }
     .header {
         height: auto;
     }
@@ -257,7 +253,6 @@ body {
         gap: 1vh;
     }
     #cName {
-        font-size: calc(5px + 1vmax);
     }
     #hImg {
         width: 30vw;
@@ -309,32 +304,34 @@ body {
         align-items: center;
     }
     .hTop {
-        height: 8vh;
-        width: 100%;
-        padding-left: 0;
-        padding-right: 0;
+        height: 8.5vh;
+        width: 100vw;
     }
     #hLogo {
-        padding: 5px 10px;
+        padding: 1vh 1vw;
+        margin-left: 1vw;
     }
     #cName {
         margin: 0;
-        font-size: calc(5px + 1vmax);
+        font-size: calc(6px + 1vmax);
     }
     .hLogo {
         margin-left: 2vw;
     }
     .hLinks {
-        margin-right: 2vw;
+        margin-right: 4vw;
         gap: 1.5vw;
     }
     #logoImg {
         width: 5vh;
         height: auto;
     }
+    #expierenceLink {
+        margin-right: 2vw;
+    }
     .toplink {
         font-size: calc(5px + 1vmin);
-        padding: 5px;
+        padding: 1vh 1vw;
     }
     #contact {
         font-size: calc(5px + 1vmin);
@@ -358,7 +355,7 @@ body {
     .hContent {
         flex-direction: column;
         width: 100%;
-        height: auto;
+        height: fit-content;
         text-align: center;
         justify-content: center;
         margin: 0;
@@ -371,8 +368,7 @@ body {
     #hTitle {
         font-size: calc(15px + 1vmax);
         line-height: calc(15px + 1vmax);
-        margin-left: 3vw;
-        margin-right: 3vw;
+        width: 90vw;
     }
     #shortExp {
         font-size: calc(10px + 1vmax);

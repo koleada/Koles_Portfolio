@@ -4,6 +4,10 @@
         format("woff");
 }
 
+body {
+    width: fit-content;
+}
+
 .hContent {
     display: flex;
     flex-direction: column;
@@ -16,6 +20,7 @@
     margin: 0;
     padding: 1vh 2vw;
     height: fit-content;
+    width: 100%;
 }
 
 #blogGrid {
@@ -138,7 +143,6 @@
 .blogTitle {
     color: #cccbc8;
     font-size: calc(5px + 3.5vmax);
-    text-decoration: underline;
 }
 
 .blogCardLink:hover {
@@ -187,7 +191,69 @@
 }
 
 @media (600px < width <= 1024px) {
+    #blogGrid {
+        display: flex;
+        flex-direction: column;
+    }
+    .blogCardLink,
+    .blogCard {
+        width: 60vw;
+    }
+
+    #blogSearch {
+        height: 5vh;
+        font-size: calc(10px + 1vmax);
+    }
+    .searchPrompt {
+        font-size: calc(10px + 1vmax);
+    }
+    .blogSearchWrap {
+        height: 5vh;
+    }
 }
 
 @media (max-width: 600px) {
+    #blogGrid {
+        display: flex;
+        flex-direction: column;
+    }
+    .blogCardLink,
+    .blogCard {
+        width: 70vw;
+        text-align: left;
+    }
+    .hContent {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #hLogo {
+        margin-left: 0;
+    }
+
+    #blogSearch {
+        height: 5vh;
+        font-size: calc(5px + 1vmax);
+    }
+    .searchPrompt {
+        font-size: calc(10px + 1vmax);
+    }
+    .blogSearchWrap {
+        font-size: calc(10px + 1vmax);
+        height: 5vh;
+    }
+
+    .blogCardBody {
+        font-size: calc(5px + 1vmax);
+        gap: 1vmax;
+        margin-right: 1vw;
+    }
+    .blogCardTitle {
+        font-size: calc(10px + 1vmax);
+    }
+    .blogCardDate {
+        font-size: calc(7px + 1vmax);
+    }
+    .blogCardDesc {
+        margin-right: 1vw;
+    }
 }

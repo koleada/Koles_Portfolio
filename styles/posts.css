@@ -81,3 +81,20 @@ pre[class*="language-"]::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.3);
     border-radius: 4px;
 }
+
+@media (max-width: 600px) {
+    .hContent {
+        display: flex;
+        flex-direction: column;
+        min-height: 80vh;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-left: 4vw;
+        padding-right: 4vw;
+        margin: 0;
+        gap: 2vh;
+        font-size: calc(5px + 1.5vmax);
+        padding-bottom: 4vh;
+        max-width: 100%;
+    }
+}
