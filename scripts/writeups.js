@@ -14,24 +14,24 @@ function createPostCard(post) {
 
     return `
     <a class="blogCardLink" href="_site${post.url}index.html">
-      <div class="blogCard">
+        <div class="blogCard">
         
-        <div class="blogCardBody">
+            <div class="blogCardBody">
 
-            <div class="titleDate">
-                <h2 class="blogCardTitle">${post.title}</h2>
-                <div class="blogCardDate">${post.date}</div>
+                <div class="titleDate">
+                    <h2 class="blogCardTitle">${post.title}</h2>
+                    <div class="blogCardDate">${post.date}</div>
+                </div>
+                <div class="blogCardDesc">${post.description}</div>
+
+                <div class="blogTags">
+                    ${tags}
+                </div>
             </div>
-            <div class="blogCardDesc">${post.description}</div>
-
-            <div class="blogTags">
-                ${tags}
+            <div class="blogImgDiv">
+                <img class="blogCardImg" src="${post.image}" alt="${post.title}">
             </div>
         </div>
-        <div class="blogImgDiv">
-            <img class="blogCardImg" src="${post.image}" alt="${post.title}">
-        </div>
-      </div>
     </a>
   `;
 }

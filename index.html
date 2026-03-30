@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Kole's Cyber Portfolio</title>
         <link rel="stylesheet" href="styles/style.css" />
+        <link rel="stylesheet" href="styles/portfolio.css" />
         <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
         <script src="scripts/script.js" defer></script>
     </head>
@@ -15,71 +16,368 @@
                     <img
                         src="images/coolLogoGood.jpg"
                         alt="optiWeb Labs logo"
-                        id="logoImg"
-                    />
+                        id="logoImg" />
                     <h1 id="cName">Kole's Portfolio</h1>
                 </a>
                 <div class="hLinks">
-                    <a id="blogLink" class="toplink" href="writeups.html"
-                        >Write Ups</a
-                    >
+                    <a id="blogLink" class="toplink"
+                        href="writeups.html">Write-Ups</a>
                 </div>
             </div>
+
             <div class="hContent">
-                <div id="hLeft">
-                    <h2 id="hTitle">
-                        This is a website to showcase some of the things I've
-                        done that I think are cool and that I'd like to keep
-                        track of.
-                    </h2>
-                    <div id="hBtnAndImg">
-                        <div class="imgDiv"></div>
-                        <img
-                            src="images/me.png"
-                            alt="Picture of myself"
-                            id="hImg"
-                        />
-                        <div id="hContactDiv">
-                            <p id="meText">Me 99% of the time</p>
+                <div class="homeLayout">
+
+                    <div class="topRow">
+
+                        <aside class="leftPanel">
+
+                            <div class="profileCard">
+                                <img class="profileImg"
+                                    src="/images/me.png"
+                                    alt="Kole Profile">
+
+                                <div class="profileInfo">
+                                    <h1 class="profileName">Kole</h1>
+                                    <div class="profileRole">Cybersecurity /
+                                        IT</div>
+
+                                    <p class="profileBio">
+                                        I build security-focused infrastructure,
+                                        detection systems, and automation
+                                        tooling.
+                                        Interested in blue team engineering,
+                                        malware analysis, and home lab design.
+                                    </p>
+
+                                    <div class="profileLinks">
+                                        <a href="https://github.com/koleada"
+                                            target="_blank">GitHub</a>
+                                        <a
+                                            href="https://www.linkedin.com/in/kole-niznik/"
+                                            target="_blank">LinkedIn</a>
+                                        <a href="/resume.html">Resume</a>
+                                        <a href="/writeups/">Write Ups</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profileCards">
+                                <div class="certCard">
+                                    <div class="certTitle">Certifications</div>
+                                    <div class="certItem">
+                                        <img class="certImg"
+                                            src="/images/comptia-security-ce-certification (2).png"
+                                            alt="Security+">
+                                        <div class="certText">
+                                            <div class="certName">CompTIA
+                                                Security+</div>
+                                            <div class="certMeta">Active</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="quickInfoCard">
+                                    <div class="quickInfoTitle">Quick Info</div>
+
+                                    <div class="quickInfoRow">
+                                        <span class="qLabel">Location</span>
+                                        <span class="qValue">Hudson Valley,
+                                            NY</span>
+                                    </div>
+
+                                    <div class="quickInfoRow">
+                                        <span class="qLabel">Focus</span>
+                                        <span class="qValue">Blue Team /
+                                            Infra</span>
+                                    </div>
+
+                                    <div class="quickInfoRow">
+                                        <span class="qLabel">Tools</span>
+                                        <span class="qValue">Wazuh, pfSense,
+                                            Linux</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+
+                        <section class="heroTop">
+
+                            <!-- TOP MAIN ROW -->
+                            <div class="heroTopMainRow">
+
+                                <div class="heroText">
+                                    <h2 class="heroTitle">
+                                        Building security labs, detections, and
+                                        systems that don’t break.
+                                    </h2>
+
+                                    <p class="heroSubtitle">
+                                        This site is my portfolio and writeup
+                                        hub — projects, tools, infrastructure,
+                                        and security experiments.
+                                        Everything here is designed to be
+                                        practical and reproducible.
+                                    </p>
+
+                                    <div class="heroButtons">
+                                        <a class="heroBtn primaryBtn"
+                                            href="/writeups/">View Write Ups</a>
+                                        <a class="heroBtn secondaryBtn"
+                                            href="/resume.html">View Resume</a>
+                                    </div>
+
+                                </div>
+
+                                <div class="heroRight">
+
+                                    <div class="miniPanel">
+                                        <div class="miniHeader">Current
+                                            Focus</div>
+
+                                        <div class="miniItem">
+                                            <div class="badgeDot"></div>
+                                            <div class="badgeText">Wazuh + YARA
+                                                automated response tuning</div>
+                                        </div>
+
+                                        <div class="miniItem">
+                                            <div class="badgeDot"></div>
+                                            <div class="badgeText">Home SOC lab
+                                                (pfSense, VLANs, SIEM)</div>
+                                        </div>
+
+                                        <div class="miniItem">
+                                            <div class="badgeDot"></div>
+                                            <div class="badgeText">Writeups +
+                                                tooling documentation</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="miniPanel">
+                                        <div class="miniHeader">Lab Stack</div>
+
+                                        <div class="stackGrid">
+                                            <span
+                                                class="stackTag">pfSense</span>
+                                            <span
+                                                class="stackTag">Proxmox</span>
+                                            <span class="stackTag">Wazuh</span>
+                                            <span class="stackTag">Docker</span>
+                                            <span class="stackTag">Windows
+                                                AD</span>
+                                            <span class="stackTag">Linux</span>
+                                            <span class="stackTag">YARA</span>
+                                            <span
+                                                class="stackTag">Suricata</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="miniPanel">
+                                        <div class="miniHeader">Recent
+                                            Wins</div>
+
+                                        <div class="miniStat">
+                                            <span class="statLabel">Writeups
+                                                Published</span>
+                                            <span class="statValue">12</span>
+                                        </div>
+
+                                        <div class="miniStat">
+                                            <span class="statLabel">Detection
+                                                Rules</span>
+                                            <span class="statValue">38</span>
+                                        </div>
+
+                                        <div class="miniStat">
+                                            <span class="statLabel">Lab
+                                                Uptime</span>
+                                            <span class="statValue">99.8%</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            
+                            <!-- BOTTOM FULL WIDTH PANEL -->
+                            <div class="heroBottomPanel">
+                                <div class="miniHeader">Quick Terminal</div>
+
+                                <div class="terminalRow">
+                                    <span
+                                        class="terminalPrompt">kole@portfolio:~/writeups$</span>
+                                    <span class="terminalCmd">cat
+                                        latest.txt</span>
+                                </div>
+
+                                <div class="terminalOutput">
+                                    Latest writeup: <span
+                                        class="terminalAccent">Wazuh YARA Active
+                                        Response Tuning</span><br>
+                                    Status: <span
+                                        class="terminalAccent">Published</span><br>
+                                    Updated: <span
+                                        class="terminalAccent">2026-03-28</span>
+                                </div>
+                            </div>
+
+                        </section>
                         </div>
-                    </div>
-                    <div class="hText">
-                        <div id="shortExp">
-                            A bit about me, I really have a passion for working
-                            with computers, specifically within the
-                            cybersecurity space. I like to think there is some
-                            interesting and useful stuff that I've done or
-                            created so, please, take a look around.
+                        <div class="mainPanel">
+
+                            <section class="sectionBlock">
+                                <div class="sectionHeader">
+                                    <h3 class="sectionTitle">Featured
+                                        Projects</h3>
+                                    <div class="sectionLine"></div>
+                                </div>
+
+                                <div class="projectGrid">
+
+                                    <div class="projectCard">
+                                        <div class="projectTop">
+                                            <div class="projectName">Wazuh +
+                                                YARA
+                                                Active Response</div>
+                                            <div class="projectType">Detection /
+                                                Automation</div>
+                                        </div>
+
+                                        <div class="projectDesc">
+                                            Automated malware scanning +
+                                            quarantine
+                                            system integrated into Wazuh Active
+                                            Response.
+                                            Designed for low false positives,
+                                            operational logging, and safe
+                                            isolation
+                                            workflows.
+                                        </div>
+
+                                        <div class="projectLinks">
+                                            <a
+                                                href="https://github.com/YOURNAME/YOURREPO"
+                                                target="_blank">Repository</a>
+                                            <a href="/writeups/"
+                                                target="_blank">Writeup</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="projectCard">
+                                        <div class="projectTop">
+                                            <div class="projectName">Home SOC
+                                                Lab
+                                                Infrastructure</div>
+                                            <div class="projectType">Networking
+                                                /
+                                                Virtualization</div>
+                                        </div>
+
+                                        <div class="projectDesc">
+                                            Segmented home lab with firewall
+                                            rules,
+                                            isolated networks, monitoring,
+                                            and internal services. Built for
+                                            security testing and resilience.
+                                        </div>
+
+                                        <div class="projectLinks">
+                                            <a href="/writeups/"
+                                                target="_blank">Overview</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="projectCard">
+                                        <div class="projectTop">
+                                            <div class="projectName">Detection
+                                                Engineering Notes</div>
+                                            <div class="projectType">Threat
+                                                Hunting</div>
+                                        </div>
+
+                                        <div class="projectDesc">
+                                            A growing collection of detections,
+                                            hunting queries, and documentation
+                                            for Windows/Linux telemetry and
+                                            common
+                                            attacker behavior.
+                                        </div>
+
+                                        <div class="projectLinks">
+                                            <a href="/writeups/"
+                                                target="_blank">Read</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </section>
+
+                            <section class="sectionBlock">
+                                <div class="sectionHeader">
+                                    <h3 class="sectionTitle">Skills</h3>
+                                    <div class="sectionLine"></div>
+                                </div>
+
+                                <div class="skillsGrid">
+
+                                    <div class="skillCard">
+                                        <div class="skillTitle">Security
+                                            Engineering</div>
+                                        <ul>
+                                            <li>Endpoint monitoring (Wazuh)</li>
+                                            <li>Detection tuning / false
+                                                positive
+                                                reduction</li>
+                                            <li>YARA-based scanning +
+                                                automation</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="skillCard">
+                                        <div
+                                            class="skillTitle">Infrastructure</div>
+                                        <ul>
+                                            <li>Linux servers
+                                                (Debian/Ubuntu)</li>
+                                            <li>Proxmox virtualization</li>
+                                            <li>Networking + segmentation
+                                                (VLANs)</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="skillCard">
+                                        <div class="skillTitle">Scripting /
+                                            Automation</div>
+                                        <ul>
+                                            <li>Bash automation tooling</li>
+                                            <li>Python scripting</li>
+                                            <li>Log parsing + system
+                                                tooling</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </section>
+
                         </div>
+
                     </div>
                 </div>
-            </div>
-            <div class="funny">
-                Yes, this is writen largly with raw JS, CSS and HTML (besides
-                the blog rendering). This was the first "site" I created and it
-                wasn't being put to good use. I thought it would be cool to turn
-                it into a little portfolio.
-            </div>
-        </div>
 
-        <div id="footer">
-            <div id="companyStuff">
-                <div>Hudson Valley, NY</div>
-                <div>© 2026 Kole. All rights reserved.</div>
-            </div>
+                <div id="footer">
+                    <div id="companyStuff">
+                        <div>Hudson Valley, NY</div>
+                        <div>© 2026 Kole. All rights reserved.</div>
+                    </div>
 
-            <div id="myLinks">
-                <a
-                    href="https://www.linkedin.com/in/kole-niznik/"
-                    class="socialLinks"
-                    >LinkedIn</a
-                >
-                <a
-                    href="https://github.com/koleada?tab=repositories"
-                    class="socialLinks"
-                    >Github</a
-                >
-            </div>
-        </div>
-    </body>
-</html>
+                    <div id="myLinks">
+                        <a
+                            href="https://www.linkedin.com/in/kole-niznik/"
+                            class="socialLinks">LinkedIn</a>
+                        <a
+                            href="https://github.com/koleada?tab=repositories"
+                            class="socialLinks">Github</a>
+                    </div>
+                </div>
+            </body>
+        </html>
