@@ -92,14 +92,16 @@ body {
     background: transparent;
 
     font-family: monospace;
-    font-size: 1.4rem;
+    font-size: calc(8px + 1vmax);
     color: #cccbc8;
-
+    font-family: "white-rabbit";
     caret-color: #cccbc8;
+    width: fit-content;
 }
 
 #blogSearch::placeholder {
     color: #cccbc8;
+    font-family: "white-rabbit";
 }
 
 .blogSearchWrap {
@@ -113,7 +115,7 @@ body {
 
     border-radius: 15px;
     border: 2px solid rgba(80, 191, 230, 0.6);
-
+    width: fit-content;
     background: #645995;
     box-shadow: 0 0 18px rgba(80, 191, 230, 0.2);
     transition:
@@ -126,13 +128,15 @@ body {
     font-weight: bold;
     color: #57aba3;
     opacity: 0.9;
-
+    font-size: calc(8px + 1vmax);
     margin-right: 10px;
     line-height: 1;
     display: flex;
     align-items: center;
 }
-
+.searchPost {
+    min-width: 82vw;
+}
 .blogHeader {
     display: flex;
     flex-direction: column;
@@ -202,7 +206,7 @@ body {
         flex-direction: column;
     }
     .blogCardLink {
-        width: 60vw;
+        width: 82vw;
     }
 
     #blogSearch {
@@ -214,12 +218,12 @@ body {
         font-size: calc(5px + 1vmax);
     }
     .searchPrompt {
-        font-size: calc(10px + 1vmax);
+        font-size: calc(5px + 1vmax);
         font-weight: bolder;
+        font-family: "white-rabbit";
     }
     .blogSearchWrap {
         font-size: calc(10px + 1vmax);
-        height: 1vh;
     }
 }
 
@@ -242,7 +246,7 @@ body {
         flex-direction: column;
     }
     .blogCardLink {
-        width: 70vw;
+        width: 82vw;
         text-align: left;
     }
     #hLogo {
@@ -250,14 +254,14 @@ body {
     }
 
     #blogSearch {
-        font-size: calc(5px + 1vmax);
+        font-size: calc(2px + 1vmax);
     }
     .searchPrompt {
-        font-size: calc(8px + 1vmax);
+        font-size: calc(3px + 1vmax);
         font-weight: bolder;
     }
     .blogSearchWrap {
-        font-size: calc(10px + 1vmax);
+        font-size: calc(7px + 1vmax);
         height: 1vh;
     }
     .blogCardImg {
