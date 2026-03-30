@@ -501,7 +501,7 @@
 }
 
 /* RESPONSIVE */
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
     .topRow {
         flex-direction: column;
     }
@@ -544,8 +544,21 @@
     }
 }
 
-@media (600px < width <= 1024px) {
-}
-
 @media (max-width: 600px) {
+    .homeLayout div {
+        max-width: 80vw;
+    }
+    .homeLayout {
+        align-items: center;
+    }
+    .heroRight {
+        flex-direction: row;
+        width: 100%;
+    }
+    .heroTopMainRow {
+        flex-direction: column;
+    }
+    #recentWins {
+        display: none;
+    }
 }
