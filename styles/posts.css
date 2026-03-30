@@ -119,6 +119,10 @@ pre.line-numbers .line-numbers-rows > span {
         max-width: 85%;
     }
 
+    .quickInfoCard {
+        display: block;
+    }
+
     .hTop {
         padding-right: 0px;
     }
