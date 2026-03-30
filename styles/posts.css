@@ -16,11 +16,13 @@
     gap: 2vh;
     font-size: calc(5px + 1.5vmax);
     padding-bottom: 4vh;
-    max-width: 100%;
+    width: 90%;
 }
 
 .hContent pre {
     font-size: calc(5px + 1vmax);
+    align-self: center;
+    width: fit-content;
 }
 
 h1 {
@@ -36,7 +38,17 @@ pre[class*="language-"] {
     height: fit-content;
     line-height: 1 !important; /* forces single spacing */
     margin: 0;
-    font-size: calc(5px + 1vmax) !important;
+    --code-font-size: calc(5px + 1vmax);
+    --code-line-height: 1.35;
+
+    font-size: var(--code-font-size) !important;
+    line-height: var(--code-line-height) !important;
+
+    background: #2d2d2d;
+    border-radius: 12px;
+    overflow: auto;
+    margin: 0;
+    padding: 1em;
 }
 
 code[class*="language-"] {
@@ -44,12 +56,14 @@ code[class*="language-"] {
 }
 
 pre {
-    width: 60% !important;
+    /*width: 60% !important;*/
 }
 
-/* set line height for the code itself */
 pre[class*="language-"] code {
-    line-height: 1 !important; /* forces 1, overrides Prism defaults */
+    font-size: var(--code-font-size) !important;
+    line-height: var(--code-line-height) !important;
+    display: block;
+    margin-top: 0;
 }
 
 /* language label on top-left, above line numbers */
@@ -62,15 +76,16 @@ pre[class*="language-"] .lang-label {
     padding: 2px 8px;
     border-radius: 8px;
     text-transform: uppercase;
-    margin-top: 1vh;
     font-size: calc(5px + 1vmax);
     width: fit-content;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
 /* Prism line numbers adjustments */
 pre.line-numbers {
-    padding-left: 3.5em; /* enough space for numbers */
-    padding-right: 2em;
+    font-size: calc(5px + 1vmax) !important;
+    line-height: 1 !important;
 }
 
 pre[class*="language-"]::-webkit-scrollbar {
@@ -82,6 +97,10 @@ pre[class*="language-"]::-webkit-scrollbar-thumb {
     border-radius: 4px;
 }
 
+pre.line-numbers .line-numbers-rows > span {
+    line-height: var(--code-line-height) !important;
+}
+
 @media (max-width: 600px) {
     .hContent {
         display: flex;
@@ -89,12 +108,18 @@ pre[class*="language-"]::-webkit-scrollbar-thumb {
         min-height: 80vh;
         justify-content: flex-start;
         align-items: flex-start;
-        padding-left: 4vw;
-        padding-right: 4vw;
         margin: 0;
         gap: 2vh;
         font-size: calc(5px + 1.5vmax);
         padding-bottom: 4vh;
-        max-width: 100%;
+        max-width: 90%;
+    }
+
+    .hContent pre {
+        max-width: 85%;
+    }
+
+    .hTop {
+        padding-right: 0px;
     }
 }

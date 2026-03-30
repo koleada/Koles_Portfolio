@@ -1,65 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kole's Cyber Portfolio</title>
-    
-    <link rel="stylesheet" href="https://koleada.github.io/Koles_Portfolio/styles/style.css" />
-    <link rel="stylesheet" href="https://koleada.github.io/Koles_Portfolio/styles/posts.css" />
-    <link rel="icon" type="image/x-icon" href="https://koleada.github.io/Koles_Portfolio/images/favicon.ico">
-    <script src="https://koleada.github.io/Koles_Portfolio/scripts/writeups.js" defer></script>
-    <script src="https://koleada.github.io/Koles_Portfolio/scripts/script.js" defer></script>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Kole's Cyber Portfolio</title>
 
- 
-    <!-- Prism CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://koleada.github.io/Koles_Portfolio/styles/style.css"
+        />
+        <!-- <link rel="stylesheet" href="https://koleada.github.io/Koles_Portfolio/styles/posts.css" /> -->
+        <link rel="stylesheet" href="http://127.0.0.1:3000/styles/posts.css" />
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="https://koleada.github.io/Koles_Portfolio/images/favicon.ico"
+        />
+        <script
+            src="https://koleada.github.io/Koles_Portfolio/scripts/writeups.js"
+            defer
+        ></script>
+        <script
+            src="https://koleada.github.io/Koles_Portfolio/scripts/script.js"
+            defer
+        ></script>
 
-    <!-- Prism JS -->
-    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-markup.min.js"></script> <!-- HTML, XML, SVG -->
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-css.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-clike.min.js"></script> <!-- base for Java, C, etc. -->
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-javascript.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-python.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-java.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-bash.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-powershell.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-c.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-cpp.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-json.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-yaml.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-xml-doc.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-markdown.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-sql.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-typescript.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-ini.min.js"></script>
+        <!-- Prism CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css"
+            rel="stylesheet"
+        />
 
-    <script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.css" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="header">
-      <div class="hTop">
-        <a id="hLogo" href="https://koleada.github.io/Koles_Portfolio">
-          <img src="../../../images/coolLogoGood.jpg" alt="optiWeb Labs logo" id="logoImg">
-          <h1 id="cName">Kole's Portfolio</h1>
-        </a>
-        <div class="hLinks">
-          <a id="blogLink" class="toplink" href="https://koleada.github.io/Koles_Portfolio/writeups.html">Write-Ups</a>
+        <!-- Prism JS -->
+        <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-markup.min.js"></script>
+        <!-- HTML, XML, SVG -->
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-css.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-clike.min.js"></script>
+        <!-- base for Java, C, etc. -->
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-python.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-java.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-bash.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-powershell.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-c.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-cpp.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-json.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-yaml.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-xml-doc.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-markdown.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-sql.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-typescript.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-ini.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.css"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="header">
+            <div class="hTop">
+                <a id="hLogo" href="https://koleada.github.io/Koles_Portfolio">
+                    <img
+                        src="../../../images/coolLogoGood.jpg"
+                        alt="optiWeb Labs logo"
+                        id="logoImg"
+                    />
+                    <h1 id="cName">Kole's Portfolio</h1>
+                </a>
+                <div class="hLinks">
+                    <a
+                        id="blogLink"
+                        class="toplink"
+                        href="https://koleada.github.io/Koles_Portfolio/writeups.html"
+                        >Write-Ups</a
+                    >
+                </div>
+            </div>
         </div>
-      </div>
-      
-    </div>
-    <div class="hContent">
-      <h1>Hello</h1>
-<p>This is a test post.</p>
-<ul>
-<li>test</li>
-<li>test</li>
-<li>test</li>
-</ul>
-<pre><code class="language-java">public class FactorialCalculator {
+        <div class="hContent">
+            <h1>Hello</h1>
+            <p>This is a test post.</p>
+            <ul>
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+            </ul>
+            <pre><code class="language-java">public class FactorialCalculator {
   public static int factorial(int num) {
     if (num == 0 || num == 1) {
       return 1;
@@ -74,18 +103,25 @@
   }
 }
 </code></pre>
+        </div>
+        <div id="footer">
+            <div id="companyStuff">
+                <div>Hudson Valley, NY</div>
+                <div>© 2026 Kole. All rights reserved.</div>
+            </div>
 
-    </div>
-    <div id="footer">
-      <div id="companyStuff">
-        <div>Hudson Valley, NY</div>
-        <div>© 2026 Kole. All rights reserved.</div>
-      </div>
-
-      <div id="myLinks">
-        <a href="https://www.linkedin.com/in/kole-niznik/" class="socialLinks">LinkedIn</a>
-        <a href="https://github.com/koleada?tab=repositories" class="socialLinks">Github</a>
-      </div>
-    </div>
-  </body>
+            <div id="myLinks">
+                <a
+                    href="https://www.linkedin.com/in/kole-niznik/"
+                    class="socialLinks"
+                    >LinkedIn</a
+                >
+                <a
+                    href="https://github.com/koleada?tab=repositories"
+                    class="socialLinks"
+                    >Github</a
+                >
+            </div>
+        </div>
+    </body>
 </html>
