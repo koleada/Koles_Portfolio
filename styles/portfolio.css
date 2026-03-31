@@ -57,7 +57,7 @@
 
 .profileImg {
     width: auto;
-    height: calc(19vh + 10vw);
+    height: calc(10vh + 10vw);
     object-fit: cover;
     border-radius: 50%;
     border: 2px solid rgba(80, 191, 230, 0.25);
@@ -78,9 +78,9 @@
 }
 
 .profileBio {
-    margin-top: 1.5vh;
+    margin-top: 1vh;
     color: rgba(204, 203, 200, 0.85);
-    line-height: 1.5;
+    line-height: 1.2;
     font-size: 1rem;
 }
 
@@ -115,8 +115,18 @@
     border-radius: 22px;
     padding: 2vh 1.5vw;
 }
-.quickInfoCard {
-    display: none;
+.certCard {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    gap: 1vh;
+}
+.certItem {
+    width: 100%;
+}
+.qValue {
+    max-width: 60%;
 }
 
 .certTitle,
@@ -201,8 +211,9 @@
 .heroRight {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     gap: 2vh;
+    min-height: 40vh;
 }
 
 .heroTitle {
@@ -246,6 +257,7 @@
 .primaryBtn {
     background-color: #645995;
     font-weight: bolder;
+    border: 2px solid #645995;
 }
 
 .primaryBtn:hover {
@@ -267,7 +279,8 @@
     border-radius: 18px;
     padding: 1.8vh 1.2vw;
     border: 1px solid rgba(80, 191, 230, 0.18);
-    width: 40%;
+    width: 20%;
+    font-family: white-rabbit;
 }
 
 .miniHeader {
@@ -276,6 +289,8 @@
     margin-bottom: 1.2vh;
     font-size: 1.05rem;
     letter-spacing: 0.5px;
+    width: 100%;
+    text-align: center;
 }
 
 .miniItem {
@@ -283,7 +298,7 @@
     align-items: center;
     gap: 10px;
     margin-top: 10px;
-    font-family: monospace;
+    font-family: white-rabbit;
     color: rgba(204, 203, 200, 0.85);
 }
 
@@ -294,7 +309,6 @@
 }
 
 .stackTag {
-    font-family: monospace;
     font-size: 0.85rem;
     padding: 6px 10px;
     border-radius: 999px;
@@ -353,10 +367,14 @@
 
 .terminalRow {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
     margin-top: 1vh;
     font-family: monospace;
     font-size: 1rem;
+    text-align: center;
+    width: 100%;
 }
 
 .terminalPrompt {
@@ -419,13 +437,13 @@
 /* PROJECTS */
 .projectGrid {
     display: flex;
+    flex-direction: column;
     gap: 1.5vw;
     flex-wrap: wrap;
 }
 
 .projectCard {
     flex: 1;
-    min-width: 280px;
 
     border-radius: 20px;
     border: 2px solid rgba(87, 171, 163, 0.25);
@@ -433,6 +451,9 @@
 
     background: rgba(0, 0, 0, 0.25);
     transition: 0.2s ease;
+}
+
+#bottomCard {
 }
 
 .projectCard:hover {
@@ -501,7 +522,7 @@
 .skillCard {
     flex: 1;
     min-width: 280px;
-
+    text-align: left;
     border-radius: 20px;
     border: 2px solid rgba(87, 171, 163, 0.25);
     padding: 2.5vh 2vw;
@@ -522,16 +543,32 @@
     line-height: 1.6;
     color: rgba(204, 203, 200, 0.85);
 }
+.heroTopMainRow {
+    height: 100%;
+}
+.topRow {
+    max-height: none;
+    align-items: stretch;
+}
 
-@media (max-width: 1300px) and (max-height: 884px) {
+.quickInfoCard {
+    display: block;
+}
+.heroButtons {
+    justify-content: space-between;
+}
+
+@media (max-width: 2000px) and (max-height: 884px) {
     .heroBottomPanel {
         /* display: none; */
+    }
+    .miniPanel {
+        width: 40%;
     }
     .heroTopMainRow {
         height: 100%;
     }
     .topRow {
-        height: fit-content;
         max-height: none;
         align-items: stretch;
     }
@@ -551,7 +588,6 @@
         max-height: none;
         height: fit-content;
     }
-
     .leftPanel {
         max-width: 100%;
     }
@@ -568,6 +604,11 @@
     .heroBadgeBox {
         width: 100%;
     }
+    .badgeText {
+        font-size: 0.85rem;
+        font-family: white-rabbit;
+        line-height: 1;
+    }
     .heroButtons {
         justify-content: space-evenly;
         gap: 2vw;
@@ -577,9 +618,12 @@
         width: 30%;
     }
     .profileImg {
+        height: calc(20vh + 10vw);
+        width: auto;
+    }
+    .miniPanel {
         width: 40%;
     }
-
     .profileCard {
         display: flex;
         flex-direction: row;
@@ -608,11 +652,13 @@
 
 @media (max-width: 600px) {
     .homeLayout div {
-        max-width: 80vw;
+        max-width: 85vw;
         align-items: center;
+        height: fit-content;
     }
     .homeLayout {
         align-items: center;
+        height: fit-content;
     }
     .heroRight {
         flex-direction: row;
@@ -620,6 +666,9 @@
     }
     .heroTopMainRow {
         flex-direction: column;
+    }
+    .heroTop {
+        height: fit-content;
     }
     #recentWins {
         display: none;
@@ -629,7 +678,8 @@
         text-align: left;
     }
     .profileImg {
-        width: 65%;
+        width: 50%;
+        height: fit-content;
     }
     .certItem {
         text-align: left;
@@ -660,20 +710,19 @@
     }
     .heroRight {
         align-items: stretch;
+        flex-direction: column;
     }
     .miniPanel {
         text-align: left;
-        height: 100%;
+        width: 90%;
         align-items: stretch;
-    }
-    #currentFocus {
-        height: 100%;
     }
     .miniHeader {
         text-align: center;
+        height: fit-content;
     }
     .heroBtn {
-        font-size: calc(5px + 0.5vmax);
-        width: 40%;
+        font-size: calc(5px + 1vmax);
+        width: 50%;
     }
 }
