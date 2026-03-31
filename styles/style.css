@@ -67,9 +67,6 @@ body {
     text-decoration: none;
     font-weight: bold;
     font-size: calc(5px + 1vmax);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .toplink:hover {
