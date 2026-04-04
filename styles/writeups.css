@@ -75,7 +75,7 @@ body {
     gap: 1vh;
     color: #645995;
     height: 100%;
-    width: 90%;
+    width: 70%;
     margin-left: 1vw;
 }
 .titleDate {
@@ -85,12 +85,12 @@ body {
     height: fit-content;
 }
 .blogCardImg {
-    height: 10vh;
+    height: 16vh;
     width: 100%;
 }
 
 #blogSearch {
-    width: 20vw;
+    width: 40vw !important;
     height: 5vh;
     font-size: 2vmax;
     border-radius: 20px;
@@ -117,7 +117,7 @@ body {
     display: flex;
     align-items: center;
 
-    width: 30vw;
+    width: 40vw;
     height: 2vh;
     max-width: 700px;
     padding: 12px 18px;
@@ -145,6 +145,7 @@ body {
 }
 .searchPost {
     min-width: 82vw;
+    height: fit-content;
 }
 .blogHeader {
     display: flex;
@@ -257,6 +258,7 @@ body {
     .blogCardLink {
         width: 82vw;
         text-align: left;
+        height: fit-content;
     }
     #hLogo {
         margin-left: 0;
