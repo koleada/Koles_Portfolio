@@ -4,6 +4,11 @@
         format("woff");
 }
 
+body,
+html {
+    max-width: 100vw !important;
+}
+
 .hContent {
     display: flex;
     flex-direction: column;
@@ -17,6 +22,8 @@
     font-size: calc(5px + 1.5vmax);
     padding-bottom: 4vh;
     width: 90%;
+    max-width: 100vw;
+    line-height: 1.2;
 }
 
 .hContent pre {
@@ -48,15 +55,35 @@ pre[class*="language-"] {
     border-radius: 12px;
     overflow: auto;
     margin: 0;
+    position: relative;
     padding: 1em;
+    padding-top: 5vh !important; /* reserve space for header */
+}
+
+/* header bar */
+pre[class*="language-"] .code-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 1vh;
 }
 
 code[class*="language-"] {
     margin-top: 2vh;
 }
 
-pre {
-    /*width: 60% !important;*/
+pre,
+code {
+    min-width: 50vw;
+    max-width: 70vw;
 }
 
 pre[class*="language-"] code {
@@ -65,10 +92,11 @@ pre[class*="language-"] code {
     display: block;
     margin-top: 0;
 }
+pre[class*="language-"].line-numbers > code {
+}
 
 /* language label on top-left, above line numbers */
 pre[class*="language-"] .lang-label {
-    transform: translate(0, -50%); /* move slightly above the top of the pre */
     background: #50bfe6;
     color: #fff;
     font-size: calc(5px + 1vmax);
@@ -76,10 +104,30 @@ pre[class*="language-"] .lang-label {
     padding: 2px 8px;
     border-radius: 8px;
     text-transform: uppercase;
-    font-size: calc(5px + 1vmax);
+    font-size: calc(5px + 1vmax) !important;
     width: fit-content;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
+    font-family: white-rabbit;
+    border: 1px solid #cccbc8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* copy button */
+pre[class*="language-"] .copy-btn {
+    background: #57aba3;
+    border: 1px solid #cccbc8;
+    color: #cccbc8;
+    font-family: white-rabbit;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 8px;
+
+    font-size: calc(5px + 1vmax);
+    cursor: pointer;
+}
+pre[class*="language-"] .copy-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
 }
 
 /* Prism line numbers adjustments */

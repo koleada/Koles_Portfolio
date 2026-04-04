@@ -6,10 +6,10 @@
     <title>Kole's Cyber Portfolio</title>
     
     <link rel="stylesheet" href="https://koleada.github.io/Koles_Portfolio/styles/style.css" />
-    <link rel="stylesheet" href="https://koleada.github.io/Koles_Portfolio/styles/posts.css" />
+    <link rel="stylesheet" href="/styles/posts.css" />
     <link rel="icon" type="image/x-icon" href="https://koleada.github.io/Koles_Portfolio/images/favicon.ico">
     <script src="https://koleada.github.io/Koles_Portfolio/scripts/writeups.js" defer></script>
-    <script src="https://koleada.github.io/Koles_Portfolio/scripts/script.js" defer></script>
+    <script src="/scripts/script.js" defer></script>
 
  
     <!-- Prism CSS -->
@@ -129,7 +129,7 @@ yr scan --output-format json -C yaraxCompiledRules.yarac eicar.com
 <p><strong>Directory Monitoring</strong>:</p>
 <p>We need a way to tell Yara-X what to scan and when to scan it. For this we use the Wazuh File Integrity Monitoring (FIM) features. We can add direcotries to our config, speicifcally within the <syscheck> tags which will tell Wazuh to monitor those. Our agent then generates events when files within those directories are added, modified, deleted, etc.</p>
 <p>I chose to monitor the following directories:</p>
-<pre><code>&lt;directories realtime=&quot;yes&quot; check_all=&quot;yes&quot;&gt;/home/&lt;/directories&gt;
+<pre><code class="language-xml">&lt;directories realtime=&quot;yes&quot; check_all=&quot;yes&quot;&gt;/home/&lt;/directories&gt;
 &lt;directories realtime=&quot;yes&quot; check_all=&quot;yes&quot;&gt;/root/&lt;/directories&gt;
 &lt;directories realtime=&quot;yes&quot; check_all=&quot;yes&quot;&gt;/usr/local/bin/&lt;/directories&gt;
 </code></pre>
@@ -137,7 +137,7 @@ yr scan --output-format json -C yaraxCompiledRules.yarac eicar.com
 <p>My thought process was that I wanted Yara-X to be scanning all binaries I download, which will likely end up in one of the following locations. It can be resource intensive to do these scans on everything so at least for my home network, I wanted to go a bit light. Again the main risk for my home network comes from executables that I download or repositories I clone so those are what I want to be scanning.</p>
 <p>The directories I included are obviously nowhere near exhaustive, but for my needs it should be more then sufficient.</p>
 <p>Importantly, we can also use <ignore> tags to ignore specific paths, effecitvely excluding them from FIM. This is great for fine tuning exactly what want monitored. An example can be seen below:</p>
-<pre><code>&lt;ignore&gt;/etc/mtab&lt;/ignore&gt;
+<pre><code class="language-xml">&lt;ignore&gt;/etc/mtab&lt;/ignore&gt;
 </code></pre>
 <p><strong>Scan Script:</strong></p>
 <p>Once we have our directories being monitored, we need to give our Wazuh agent the script we want it to run once a file is changed. This of course gets put on our endpoint as our agent will have to perform the actual execution of the script once a FIM event triggers.</p>

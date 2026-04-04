@@ -4,35 +4,63 @@ document.querySelectorAll("pre code[class*='language-']").forEach((block) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Wait until Prism is loaded
     if (!window.Prism) {
         console.error("Prism not loaded yet");
         return;
     }
 
-    // Loop through all pre tags with language-* class
-    document.querySelectorAll("pre[class*='language-']").forEach((pre) => {
-        // Avoid adding the label twice
-        if (pre.querySelector(".lang-label")) return;
+    document
+        .querySelectorAll("pre code[class*='language-']")
+        .forEach((code) => {
+            const pre = code.parentElement;
 
-        // Determine language
-        const langClass = Array.from(pre.classList).find((c) =>
-            c.startsWith("language-")
-        );
-        if (!langClass) return;
+            // Prevent duplicates
+            if (pre.querySelector(".code-header")) return;
 
-        const lang = langClass.replace("language-", "");
+            // Add line numbers if you still want them
+            pre.classList.add("line-numbers");
 
-        // Create label element
-        const label = document.createElement("div");
-        label.className = "lang-label";
-        label.textContent = lang;
+            // Find language
+            const langClass = Array.from(code.classList).find((c) =>
+                c.startsWith("language-")
+            );
+            const lang = langClass
+                ? langClass.replace("language-", "")
+                : "text";
 
-        // Insert at the top of pre
-        pre.prepend(label);
+            // Header container
+            const header = document.createElement("div");
+            header.className = "code-header";
 
-        // Highlight code
-        const codeBlock = pre.querySelector("code");
-        if (codeBlock) Prism.highlightElement(codeBlock);
-    });
+            // Language label
+            const label = document.createElement("div");
+            label.className = "lang-label";
+            label.textContent = lang;
+
+            // Copy button
+            const copyBtn = document.createElement("div");
+            copyBtn.className = "copy-btn";
+            copyBtn.type = "button";
+            copyBtn.textContent = "Copy";
+
+            copyBtn.addEventListener("click", async () => {
+                try {
+                    await navigator.clipboard.writeText(code.textContent);
+                    copyBtn.textContent = "Copied!";
+                    setTimeout(() => (copyBtn.textContent = "Copy"), 1200);
+                } catch (err) {
+                    console.error("Copy failed:", err);
+                    copyBtn.textContent = "Failed";
+                    setTimeout(() => (copyBtn.textContent = "Copy"), 1200);
+                }
+            });
+
+            header.appendChild(label);
+            header.appendChild(copyBtn);
+
+            // Insert header at top of pre
+            pre.prepend(header);
+
+            Prism.highlightElement(code);
+        });
 });

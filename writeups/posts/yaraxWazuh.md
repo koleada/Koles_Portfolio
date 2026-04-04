@@ -128,7 +128,7 @@ We need a way to tell Yara-X what to scan and when to scan it. For this we use t
 
 I chose to monitor the following directories:
 
-```
+```xml
 <directories realtime="yes" check_all="yes">/home/</directories>
 <directories realtime="yes" check_all="yes">/root/</directories>
 <directories realtime="yes" check_all="yes">/usr/local/bin/</directories>
@@ -142,7 +142,7 @@ The directories I included are obviously nowhere near exhaustive, but for my nee
 
 Importantly, we can also use <ignore> tags to ignore specific paths, effecitvely excluding them from FIM. This is great for fine tuning exactly what want monitored. An example can be seen below:
 
-```
+```xml
 <ignore>/etc/mtab</ignore>
 ```
 
