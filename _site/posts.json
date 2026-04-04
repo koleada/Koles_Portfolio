@@ -5,7 +5,7 @@
     "date": "2026-04-04",
     "description": "In this post, I show how to integrate the powerful pattern matching and detection tool Yara-X with Wazuh to falicilate automated, customized malware scanning and quarantining on Linux machines.",
     "tags": ["Wazuh","Yara-X","Linux"],
-    "image": "/images/yaraxWazuh.jpg",
+    "image": "https://raw.githubusercontent.com/koleada/Koles_Portfolio/refs/heads/main/images/yaraxWazuh.jpg",
     "url": "/writeups/posts/yaraxWazuh/"
   },
 
