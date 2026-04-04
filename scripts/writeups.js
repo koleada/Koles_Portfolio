@@ -22,15 +22,15 @@ function createPostCard(post) {
                     <h2 class="blogCardTitle">${post.title}</h2>
                     <div class="blogCardDate">${post.date}</div>
                 </div>
-                <div class="blogCardDesc">${post.description}</div>
-
                 <div class="blogTags">
                     ${tags}
+
                 </div>
             </div>
             <div class="blogImgDiv">
                 <img class="blogCardImg" src="${post.image}" alt="${post.title}">
             </div>
+            
         </div>
     </a>
   `;

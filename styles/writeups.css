@@ -44,40 +44,49 @@ body {
     border-radius: 20px;
     border: 3px solid #645995;
     background-color: #cccbc8;
-    height: fit-content;
+    height: 20vh;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .blogCard {
     display: flex;
-    justify-content: space-around;
-    min-height: 24vh;
+    height: 100%;
     gap: 1vw;
     width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .blogImgDiv {
-    width: 60%;
     margin-right: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    max-height: 100%;
 }
 
 .blogCardBody {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 1vh;
     color: #645995;
-    height: auto;
-    width: 80%;
+    height: 100%;
+    width: 90%;
     margin-left: 1vw;
 }
 .titleDate {
     display: flex;
     flex-direction: column;
     gap: 1vh;
+    height: fit-content;
 }
 .blogCardImg {
-    height: auto;
+    height: 10vh;
+    width: 100%;
 }
 
 #blogSearch {
