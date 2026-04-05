@@ -164,7 +164,7 @@ body {
 .blogDescription {
     color: #cccbc8;
     font-size: calc(5px + 1.75vmax);
-    line-height: 3vh;
+    line-height: 1.1;
     margin: 0;
     width: 80vw;
     margin-bottom: 2vh;
@@ -259,6 +259,7 @@ body {
         width: 82vw;
         text-align: left;
         height: fit-content;
+        min-height: 22vh;
     }
     #hLogo {
         margin-left: 0;
