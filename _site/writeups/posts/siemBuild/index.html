@@ -85,42 +85,42 @@
 <h3>Wazuh Setup</h3>
 <p>In this section, we will go over the Wazuh setup. Its mostly straight forward with a few small nuances.</p>
 <p>First, we clone the repo:</p>
-<pre><code>git clone https://github.com/wazuh/wazuh-docker.git -b v4.14.4
+<pre><code class="language-bash">git clone https://github.com/wazuh/wazuh-docker.git -b v4.14.4
 </code></pre>
 <p>Once we have that, we want to generate certificates for Wazuh, however, we do not want the certificates to use the container names, we want want to add our host IP as well. Its certianly possible to get the proper certificate trusts using just the contianer names, but I prefer having the host IP in the certificate as well.</p>
-<pre><code>cd wazuh-docker/single-node/config
+<pre><code class="language-bash">cd wazuh-docker/single-node/config
 
 nano certs.yml
 </code></pre>
 <p>Edit certs.yml to be:</p>
-<pre><code>nodes:
-  # Wazuh indexer server nodes
-  indexer:
-    - name: wazuh.indexer
-      ip: &lt;INDEXER_IP&gt;
+<pre><code class="language-yml">nodes:
+    # Wazuh indexer server nodes
+    indexer:
+        - name: wazuh.indexer
+          ip: &lt;INDEXER_IP&gt;
 
-  # Wazuh server nodes
-  # Use node_type only with more than one Wazuh manager
-  server:
-    - name: wazuh.manager
-      ip: &lt;MANAGER_IP&gt;
+    # Wazuh server nodes
+    # Use node_type only with more than one Wazuh manager
+    server:
+        - name: wazuh.manager
+          ip: &lt;MANAGER_IP&gt;
 
-  # Wazuh dashboard node
-  dashboard:
-    - name: wazuh.dashboard
-      ip: &lt;DASHBOARD_IP&gt;
+    # Wazuh dashboard node
+    dashboard:
+        - name: wazuh.dashboard
+          ip: &lt;DASHBOARD_IP&gt;
 </code></pre>
 <p>Note this config expects everything to be on the same machine, if that is not the case, stuff will have to change.</p>
 <p>This part is super necessary, do not skip it, your install will break. I believe this basically makes the indexer advertise as elasticsearch instead of opensearch. That could be very wrong but in all honesty the time it took me to figure this out makes me not even care about what this line does. All I know is that for this setup to work it must be removed, kapish?</p>
-<pre><code>cd wazuh_indexer
+<pre><code class="language-bash">cd wazuh_indexer
 
 nano wazuh.indexer.yml
 </code></pre>
 <p>Find and remove the following line:</p>
-<pre><code>compatibility.override_main_response_version: true
+<pre><code class="language-bash">compatibility.override_main_response_version: true
 </code></pre>
 <p>Once that is completed, we can go ahead and generate the certificates.</p>
-<pre><code>cd ../../
+<pre><code class="language-bash">cd ../../
 
 docker compose -f generate-indexer-certs.yml run --rm generator
 </code></pre>
@@ -132,183 +132,183 @@ docker compose -f generate-indexer-certs.yml run --rm generator
 <p>You will want to keep the default wazuh compose file but just add the graylog and mongo sections to it so it looks like the below:</p>
 <p>I do also recommend maybe using my mappings to avoid conflicts, lots of stuff wants to run on 443, I personally have MISP running on 443, SocFortress on 8080, Wazuh web ui on 55601 (because I barely need it anyways) but again totally up to you. Just know between CoPilot and Wazuh something will need to be changed.</p>
 <p>Again if you used different passwords, be sure those are properly set in this compose file.</p>
-<pre><code>services:
-  wazuh.manager:
-    image: wazuh/wazuh-manager:4.14.3
-    hostname: wazuh.manager
-    restart: always
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-      nofile:
-        soft: 655360
-        hard: 655360
-    ports:
-      - &quot;1514:1514&quot;
-      - &quot;1515:1515&quot;
-      - &quot;514:514/udp&quot;
-      - &quot;55000:55000&quot;
-    environment:
-      - INDEXER_URL=https://wazuh.indexer:9200
-      - INDEXER_USERNAME=admin
-      - INDEXER_PASSWORD=SecretPassword
-      - FILEBEAT_SSL_VERIFICATION_MODE=full
-      - SSL_CERTIFICATE_AUTHORITIES=/etc/ssl/root-ca.pem
-      - SSL_CERTIFICATE=/etc/ssl/filebeat.pem
-      - SSL_KEY=/etc/ssl/filebeat.key
-      - API_USERNAME=wazuh-wui
-      - API_PASSWORD=MyS3cr37P450r.*-
-    volumes:
-      - wazuh_api_configuration:/var/ossec/api/configuration
-      - wazuh_etc:/var/ossec/etc
-      - wazuh_logs:/var/ossec/logs
-      - wazuh_queue:/var/ossec/queue
-      - wazuh_var_multigroups:/var/ossec/var/multigroups
-      - wazuh_integrations:/var/ossec/integrations
-      - wazuh_active_response:/var/ossec/active-response/bin
-      - wazuh_agentless:/var/ossec/agentless
-      - wazuh_wodles:/var/ossec/wodles
-      - filebeat_etc:/etc/filebeat
-      - filebeat_var:/var/lib/filebeat
-      - ./config/wazuh_indexer_ssl_certs/root-ca-manager.pem:/etc/ssl/root-ca.pem
-      - ./config/wazuh_indexer_ssl_certs/wazuh.manager.pem:/etc/ssl/filebeat.pem
-      - ./config/wazuh_indexer_ssl_certs/wazuh.manager-key.pem:/etc/ssl/filebeat.key
-      - ./config/wazuh_cluster/wazuh_manager.conf:/wazuh-config-mount/etc/ossec.conf
+<pre><code class="language-yml">services:
+    wazuh.manager:
+        image: wazuh/wazuh-manager:4.14.3
+        hostname: wazuh.manager
+        restart: always
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+            nofile:
+                soft: 655360
+                hard: 655360
+        ports:
+            - &quot;1514:1514&quot;
+            - &quot;1515:1515&quot;
+            - &quot;514:514/udp&quot;
+            - &quot;55000:55000&quot;
+        environment:
+            - INDEXER_URL=https://wazuh.indexer:9200
+            - INDEXER_USERNAME=admin
+            - INDEXER_PASSWORD=SecretPassword
+            - FILEBEAT_SSL_VERIFICATION_MODE=full
+            - SSL_CERTIFICATE_AUTHORITIES=/etc/ssl/root-ca.pem
+            - SSL_CERTIFICATE=/etc/ssl/filebeat.pem
+            - SSL_KEY=/etc/ssl/filebeat.key
+            - API_USERNAME=wazuh-wui
+            - API_PASSWORD=MyS3cr37P450r.*-
+        volumes:
+            - wazuh_api_configuration:/var/ossec/api/configuration
+            - wazuh_etc:/var/ossec/etc
+            - wazuh_logs:/var/ossec/logs
+            - wazuh_queue:/var/ossec/queue
+            - wazuh_var_multigroups:/var/ossec/var/multigroups
+            - wazuh_integrations:/var/ossec/integrations
+            - wazuh_active_response:/var/ossec/active-response/bin
+            - wazuh_agentless:/var/ossec/agentless
+            - wazuh_wodles:/var/ossec/wodles
+            - filebeat_etc:/etc/filebeat
+            - filebeat_var:/var/lib/filebeat
+            - ./config/wazuh_indexer_ssl_certs/root-ca-manager.pem:/etc/ssl/root-ca.pem
+            - ./config/wazuh_indexer_ssl_certs/wazuh.manager.pem:/etc/ssl/filebeat.pem
+            - ./config/wazuh_indexer_ssl_certs/wazuh.manager-key.pem:/etc/ssl/filebeat.key
+            - ./config/wazuh_cluster/wazuh_manager.conf:/wazuh-config-mount/etc/ossec.conf
 
-  wazuh.indexer:
-    image: wazuh/wazuh-indexer:4.14.3
-    hostname: wazuh.indexer
-    restart: always
-    ports:
-      - &quot;9200:9200&quot;
-    networks:
-      default:
-        aliases:
-          - wazuh.indexer
-    environment:
-      # change as needed
-      - &quot;OPENSEARCH_JAVA_OPTS=-Xms2g -Xmx2g&quot;
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-      nofile:
-        soft: 65536
-        hard: 65536
-    volumes:
-      - wazuh-indexer-data:/var/lib/wazuh-indexer
-      - ./config/wazuh_indexer_ssl_certs/root-ca.pem:/usr/share/wazuh-indexer/config/certs/root-ca.pem
-      - ./config/wazuh_indexer_ssl_certs/wazuh.indexer-key.pem:/usr/share/wazuh-indexer/config/certs/wazuh.indexer.key
-      - ./config/wazuh_indexer_ssl_certs/wazuh.indexer.pem:/usr/share/wazuh-indexer/config/certs/wazuh.indexer.pem
-      - ./config/wazuh_indexer_ssl_certs/admin.pem:/usr/share/wazuh-indexer/config/certs/admin.pem
-      - ./config/wazuh_indexer_ssl_certs/admin-key.pem:/usr/share/wazuh-indexer/config/certs/admin-key.pem
-      - ./config/wazuh_indexer/wazuh.indexer.yml:/usr/share/wazuh-indexer/config/opensearch.yml
-      - ./config/wazuh_indexer/internal_users.yml:/usr/share/wazuh-indexer/config/opensearch-security/internal_users.yml
+    wazuh.indexer:
+        image: wazuh/wazuh-indexer:4.14.3
+        hostname: wazuh.indexer
+        restart: always
+        ports:
+            - &quot;9200:9200&quot;
+        networks:
+            default:
+                aliases:
+                    - wazuh.indexer
+        environment:
+            # change as needed
+            - &quot;OPENSEARCH_JAVA_OPTS=-Xms2g -Xmx2g&quot;
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+            nofile:
+                soft: 65536
+                hard: 65536
+        volumes:
+            - wazuh-indexer-data:/var/lib/wazuh-indexer
+            - ./config/wazuh_indexer_ssl_certs/root-ca.pem:/usr/share/wazuh-indexer/config/certs/root-ca.pem
+            - ./config/wazuh_indexer_ssl_certs/wazuh.indexer-key.pem:/usr/share/wazuh-indexer/config/certs/wazuh.indexer.key
+            - ./config/wazuh_indexer_ssl_certs/wazuh.indexer.pem:/usr/share/wazuh-indexer/config/certs/wazuh.indexer.pem
+            - ./config/wazuh_indexer_ssl_certs/admin.pem:/usr/share/wazuh-indexer/config/certs/admin.pem
+            - ./config/wazuh_indexer_ssl_certs/admin-key.pem:/usr/share/wazuh-indexer/config/certs/admin-key.pem
+            - ./config/wazuh_indexer/wazuh.indexer.yml:/usr/share/wazuh-indexer/config/opensearch.yml
+            - ./config/wazuh_indexer/internal_users.yml:/usr/share/wazuh-indexer/config/opensearch-security/internal_users.yml
 
-  wazuh.dashboard:
-    image: wazuh/wazuh-dashboard:4.14.3
-    hostname: wazuh.dashboard
-    restart: always
-    ports:
-      - 55601:5601
-    environment:
-      - INDEXER_USERNAME=admin
-      - INDEXER_PASSWORD=SecretPassword
-      - WAZUH_API_URL=https://wazuh.manager
-      - DASHBOARD_USERNAME=kibanaserver
-      - DASHBOARD_PASSWORD=kibanaserver
-      - API_USERNAME=wazuh-wui
-      - API_PASSWORD=MyS3cr37P450r.*-
-    volumes:
-      - ./config/wazuh_indexer_ssl_certs/wazuh.dashboard.pem:/usr/share/wazuh-dashboard/certs/wazuh-dashboard.pem
-      - ./config/wazuh_indexer_ssl_certs/wazuh.dashboard-key.pem:/usr/share/wazuh-dashboard/certs/wazuh-dashboard-key.pem
-      - ./config/wazuh_indexer_ssl_certs/root-ca.pem:/usr/share/wazuh-dashboard/certs/root-ca.pem
-      - ./config/wazuh_dashboard/opensearch_dashboards.yml:/usr/share/wazuh-dashboard/config/opensearch_dashboards.yml
-      - ./config/wazuh_dashboard/wazuh.yml:/usr/share/wazuh-dashboard/data/wazuh/config/wazuh.yml
-      - wazuh-dashboard-config:/usr/share/wazuh-dashboard/data/wazuh/config
-      - wazuh-dashboard-custom:/usr/share/wazuh-dashboard/plugins/wazuh/public/assets/custom
-    depends_on:
-      - wazuh.indexer
-    links:
-      - wazuh.indexer:wazuh.indexer
-      - wazuh.manager:wazuh.manager
+    wazuh.dashboard:
+        image: wazuh/wazuh-dashboard:4.14.3
+        hostname: wazuh.dashboard
+        restart: always
+        ports:
+            - 55601:5601
+        environment:
+            - INDEXER_USERNAME=admin
+            - INDEXER_PASSWORD=SecretPassword
+            - WAZUH_API_URL=https://wazuh.manager
+            - DASHBOARD_USERNAME=kibanaserver
+            - DASHBOARD_PASSWORD=kibanaserver
+            - API_USERNAME=wazuh-wui
+            - API_PASSWORD=MyS3cr37P450r.*-
+        volumes:
+            - ./config/wazuh_indexer_ssl_certs/wazuh.dashboard.pem:/usr/share/wazuh-dashboard/certs/wazuh-dashboard.pem
+            - ./config/wazuh_indexer_ssl_certs/wazuh.dashboard-key.pem:/usr/share/wazuh-dashboard/certs/wazuh-dashboard-key.pem
+            - ./config/wazuh_indexer_ssl_certs/root-ca.pem:/usr/share/wazuh-dashboard/certs/root-ca.pem
+            - ./config/wazuh_dashboard/opensearch_dashboards.yml:/usr/share/wazuh-dashboard/config/opensearch_dashboards.yml
+            - ./config/wazuh_dashboard/wazuh.yml:/usr/share/wazuh-dashboard/data/wazuh/config/wazuh.yml
+            - wazuh-dashboard-config:/usr/share/wazuh-dashboard/data/wazuh/config
+            - wazuh-dashboard-custom:/usr/share/wazuh-dashboard/plugins/wazuh/public/assets/custom
+        depends_on:
+            - wazuh.indexer
+        links:
+            - wazuh.indexer:wazuh.indexer
+            - wazuh.manager:wazuh.manager
 
-  mongodb:
-    image: &quot;mongo:5.0&quot;
-    volumes:
-      - &quot;mongodb_data:/data/db&quot;
-    ports:
-      - &quot;27017:27017&quot;
-    restart: &quot;on-failure&quot;
+    mongodb:
+        image: &quot;mongo:5.0&quot;
+        volumes:
+            - &quot;mongodb_data:/data/db&quot;
+        ports:
+            - &quot;27017:27017&quot;
+        restart: &quot;on-failure&quot;
 
-  graylog:
-    hostname: &quot;server&quot;
-    image: &quot;graylog/graylog:6.2&quot;
-    user: &quot;0:0&quot;
-    extra_hosts:
-      - &quot;wazuh-indexer:127.0.0.1&quot;
-    environment:
-      GRAYLOG_NODE_ID_FILE: &quot;/usr/share/graylog/data/config/node-id&quot;
-      GRAYLOG_PASSWORD_SECRET: &quot;${GRAYLOG_PASSWORD_SECRET:?Please configure GRAYLOG_PASSWORD_SECRET in the .env file}&quot;
-      GRAYLOG_ROOT_PASSWORD_SHA2: &quot;${GRAYLOG_ROOT_PASSWORD_SHA2:?Please configure GRAYLOG_ROOT_PASSWORD_SHA2 in the .env file}&quot;
-      GRAYLOG_HTTP_BIND_ADDRESS: &quot;0.0.0.0:9000&quot;
-      GRAYLOG_HTTP_EXTERNAL_URI: &quot;https://&lt;IP_OR_HOST&gt;:9000/&quot;
-      GRAYLOG_ELASTICSEARCH_HOSTS: &quot;https://admin:&lt;ADMIN_PASS&gt;@&lt;INDEXER_IP&gt;:9200&quot;
-      GRAYLOG_ELASTICSEARCH_SSL_ENABLED: &quot;true&quot;
-      GRAYLOG_ELASTICSEARCH_SSL_CERTIFICATE_AUTHORITIES: &quot;/etc/ssl/certs/wazuh-root-ca.pem&quot;
-      GRAYLOG_MONGODB_URI: &quot;mongodb://mongodb:27017/graylog&quot;
-      GRAYLOG_HTTP_PUBLISH_URI: &quot;https://&lt;IP_OR_HOST&gt;:9000/&quot;
+    graylog:
+        hostname: &quot;server&quot;
+        image: &quot;graylog/graylog:6.2&quot;
+        user: &quot;0:0&quot;
+        extra_hosts:
+            - &quot;wazuh-indexer:127.0.0.1&quot;
+        environment:
+            GRAYLOG_NODE_ID_FILE: &quot;/usr/share/graylog/data/config/node-id&quot;
+            GRAYLOG_PASSWORD_SECRET: &quot;${GRAYLOG_PASSWORD_SECRET:?Please configure GRAYLOG_PASSWORD_SECRET in the .env file}&quot;
+            GRAYLOG_ROOT_PASSWORD_SHA2: &quot;${GRAYLOG_ROOT_PASSWORD_SHA2:?Please configure GRAYLOG_ROOT_PASSWORD_SHA2 in the .env file}&quot;
+            GRAYLOG_HTTP_BIND_ADDRESS: &quot;0.0.0.0:9000&quot;
+            GRAYLOG_HTTP_EXTERNAL_URI: &quot;https://&lt;IP_OR_HOST&gt;:9000/&quot;
+            GRAYLOG_ELASTICSEARCH_HOSTS: &quot;https://admin:&lt;ADMIN_PASS&gt;@&lt;INDEXER_IP&gt;:9200&quot;
+            GRAYLOG_ELASTICSEARCH_SSL_ENABLED: &quot;true&quot;
+            GRAYLOG_ELASTICSEARCH_SSL_CERTIFICATE_AUTHORITIES: &quot;/etc/ssl/certs/wazuh-root-ca.pem&quot;
+            GRAYLOG_MONGODB_URI: &quot;mongodb://mongodb:27017/graylog&quot;
+            GRAYLOG_HTTP_PUBLISH_URI: &quot;https://&lt;IP_OR_HOST&gt;:9000/&quot;
 
-      # enable HTTPS
-      GRAYLOG_SERVER_JAVA_OPTS: &quot;-Djava.net.preferIPv4Stack=true -Djavax.net.ssl.trustStore=/truststore/opensearch.jks -Djavax.net.ssl.trustStorePassword=changeit&quot;
-      GRAYLOG_HTTP_ENABLE_TLS: &quot;true&quot;
-      GRAYLOG_HTTP_TLS_CERT_FILE: &quot;/usr/share/graylog/data/config/certs/public.pem&quot;
-      GRAYLOG_HTTP_TLS_KEY_FILE: &quot;/usr/share/graylog/data/config/certs/private.key&quot;
+            # enable HTTPS
+            GRAYLOG_SERVER_JAVA_OPTS: &quot;-Djava.net.preferIPv4Stack=true -Djavax.net.ssl.trustStore=/truststore/opensearch.jks -Djavax.net.ssl.trustStorePassword=changeit&quot;
+            GRAYLOG_HTTP_ENABLE_TLS: &quot;true&quot;
+            GRAYLOG_HTTP_TLS_CERT_FILE: &quot;/usr/share/graylog/data/config/certs/public.pem&quot;
+            GRAYLOG_HTTP_TLS_KEY_FILE: &quot;/usr/share/graylog/data/config/certs/private.key&quot;
 
-    ports:
-      - &quot;5044:5044/tcp&quot;   # Beats
-      - &quot;5140:5140/udp&quot;   # Syslog
-      - &quot;5140:5140/tcp&quot;   # Syslog
-      - &quot;5555:5555/tcp&quot;   # RAW TCP
-      - &quot;5555:5555/udp&quot;   # RAW TCP
-      - &quot;9000:9000/tcp&quot;   # Server API
-      - &quot;12201:12201/tcp&quot; # GELF TCP
-      - &quot;12201:12201/udp&quot; # GELF UDP
-      - &quot;5556:5556/udp&quot;   # pfSense
-      - &quot;5557:5557/udp&quot;   # Suricata
-    #- &quot;10000:10000/tcp&quot; # Custom TCP port
-    #- &quot;10000:10000/udp&quot; # Custom UDP port
-      - &quot;13301:13301/tcp&quot; # Forwarder data
-      - &quot;13302:13302/tcp&quot; # Forwarder config
-    volumes:
-      - &quot;graylog_data:/usr/share/graylog/data/data&quot;
-      - &quot;graylog_journal:/usr/share/graylog/data/journal&quot;
-      - &quot;./config/wazuh_indexer_ssl_certs/root-ca.pem:/etc/ssl/certs/wazuh-root-ca.pem:ro&quot;
-      - &quot;./graylog/truststore:/truststore&quot;
-      - &quot;./graylog/certs:/usr/share/graylog/data/config/certs:ro&quot;
-      - &quot;./graylog/tls:/opt/graylog/tls:ro&quot;
-    restart: &quot;on-failure&quot;
+        ports:
+            - &quot;5044:5044/tcp&quot; # Beats
+            - &quot;5140:5140/udp&quot; # Syslog
+            - &quot;5140:5140/tcp&quot; # Syslog
+            - &quot;5555:5555/tcp&quot; # RAW TCP
+            - &quot;5555:5555/udp&quot; # RAW TCP
+            - &quot;9000:9000/tcp&quot; # Server API
+            - &quot;12201:12201/tcp&quot; # GELF TCP
+            - &quot;12201:12201/udp&quot; # GELF UDP
+            - &quot;5556:5556/udp&quot; # pfSense
+            - &quot;5557:5557/udp&quot; # Suricata
+            #- &quot;10000:10000/tcp&quot; # Custom TCP port
+            #- &quot;10000:10000/udp&quot; # Custom UDP port
+            - &quot;13301:13301/tcp&quot; # Forwarder data
+            - &quot;13302:13302/tcp&quot; # Forwarder config
+        volumes:
+            - &quot;graylog_data:/usr/share/graylog/data/data&quot;
+            - &quot;graylog_journal:/usr/share/graylog/data/journal&quot;
+            - &quot;./config/wazuh_indexer_ssl_certs/root-ca.pem:/etc/ssl/certs/wazuh-root-ca.pem:ro&quot;
+            - &quot;./graylog/truststore:/truststore&quot;
+            - &quot;./graylog/certs:/usr/share/graylog/data/config/certs:ro&quot;
+            - &quot;./graylog/tls:/opt/graylog/tls:ro&quot;
+        restart: &quot;on-failure&quot;
 
 volumes:
-  mongodb_data:
-  os_data:
-  graylog_data:
-  graylog_journal:
-  wazuh_api_configuration:
-  wazuh_etc:
-  wazuh_logs:
-  wazuh_queue:
-  wazuh_var_multigroups:
-  wazuh_integrations:
-  wazuh_active_response:
-  wazuh_agentless:
-  wazuh_wodles:
-  filebeat_etc:
-  filebeat_var:
-  wazuh-indexer-data:
-  wazuh-dashboard-config:
-  wazuh-dashboard-custom:
+    mongodb_data:
+    os_data:
+    graylog_data:
+    graylog_journal:
+    wazuh_api_configuration:
+    wazuh_etc:
+    wazuh_logs:
+    wazuh_queue:
+    wazuh_var_multigroups:
+    wazuh_integrations:
+    wazuh_active_response:
+    wazuh_agentless:
+    wazuh_wodles:
+    filebeat_etc:
+    filebeat_var:
+    wazuh-indexer-data:
+    wazuh-dashboard-config:
+    wazuh-dashboard-custom:
 </code></pre>
 <h3>Graylog .env</h3>
 <p>Once thats done, I create directory for our Truststore volume(from inside of the single node directory):</p>
@@ -326,7 +326,7 @@ echo -n &quot;Enter Password: &quot; &amp;&amp; head -1 &lt;/dev/stdin | tr -d '
 <pre><code class="language-bash">nano .env
 </code></pre>
 <p>We want to add the following to our .env file:</p>
-<pre><code># You MUST set a secret to secure/pepper the stored user passwords here. Use at least 64 characters.
+<pre><code class="language-bash"># You MUST set a secret to secure/pepper the stored user passwords here. Use at least 64 characters.
 # Generate one by using for example: pwgen -N 1 -s 96
 # ATTENTION: This value must be the same on all Graylog nodes in the cluster.
 # Changing this value after installation will render all user sessions and encrypted values in the database invalid. (e.g. encrypted access tokens)
@@ -344,7 +344,7 @@ GRAYLOG_ELASTICSEARCH_SSL_VERIFY_HOSTNAME=&quot;false&quot;          -          
 </code></pre>
 <h3>Password Tests</h3>
 <p>Ok nice, thats a good start. At this point we want to see we've made some progress.</p>
-<pre><code>docker compose up -d
+<pre><code class="language-bash">docker compose up -d
 </code></pre>
 <p>Also note, Graylog will not work here, it cannot communicate with its backend (our indexer) because it uses an SSL cert that Graylog does not yet trust (were getting there).</p>
 <p>So as a quick mid point test we want to jump into Wazuh, if you use my mappings it will be on port 55601 (or the wazuh web ui will be on 443 by default). So in your browser go to:</p>
@@ -353,33 +353,33 @@ GRAYLOG_ELASTICSEARCH_SSL_VERIFY_HOSTNAME=&quot;false&quot;          -          
 <p>Sign into Wazuh using the admin credentials we defined in our compose file. If you changed the password now is a great time to ensure the password was actually changed.</p>
 <p>We should also test the Wazuh API user account if we changed the password for that too.</p>
 <p>In a terminal that has access to cURL run the following while changing the password to be the one you set and the IP to your Wazuh Manager IP:</p>
-<pre><code>curl -k -u &quot;wazuh-wui:&lt;API_USER_PASS&gt;&quot; https://&lt;WAZUH_MANAGER_IP&gt;:55000/security/user/authenticate
+<pre><code class="language-bash">curl -k -u &quot;wazuh-wui:&lt;API_USER_PASS&gt;&quot; https://&lt;WAZUH_MANAGER_IP&gt;:55000/security/user/authenticate
 </code></pre>
 <p>That will return a giant token that like this:</p>
-<pre><code>{&quot;data&quot;: {&quot;token&quot;: &quot;eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9......&quot;}, &quot;error&quot;: 0}
+<pre><code class="language-JSON">{&quot;data&quot;: {&quot;token&quot;: &quot;eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9......&quot;}, &quot;error&quot;: 0}
 </code></pre>
 <p>Copy that entire token and use it in the following command:</p>
-<pre><code>curl -k -H &quot;Authorization: Bearer &lt;FULL_TOKEN&gt;&quot; https://&lt;WAZUH_MANAGER_IP&gt;:55000
+<pre><code class="language-bash">curl -k -H &quot;Authorization: Bearer &lt;FULL_TOKEN&gt;&quot; https://&lt;WAZUH_MANAGER_IP&gt;:55000
 </code></pre>
 <p>We should see some basic information about Wazuh like the version. If either password is not working, repeat the steps outlined in the Wazuh documentation to change the password properly, regenerate the certificates afterward.</p>
 <h3>Generating Graylog TLS Certificates</h3>
 <p>Ok so now we need to secure our stakc by getting Graylog on HTTPS. We do not want plaintext traffic going over our network at all, but certaintly not for one of the foundational security tools in our enviornemnt.</p>
 <p>We would need to go through most of this anyway to ensure Graylog trusts the Wazuh certificates so its not much extra work to get it on HTTPS.</p>
 <p>From the single node directory run:</p>
-<pre><code>mkdir -p graylog/certs
+<pre><code class="language-bash">mkdir -p graylog/certs
 cd graylog/certs
 </code></pre>
 <p>Now we needed to generate our Graylog's private key:</p>
-<pre><code>openssl genpkey -algorithm RSA -out private.key -pkeyopt rsa_keygen_bits:4096
+<pre><code class="language-bash">openssl genpkey -algorithm RSA -out private.key -pkeyopt rsa_keygen_bits:4096
 
 chmod 664 private.key
 </code></pre>
 <p>Now we want to edit the .conf file we will use for our certificate. This is where we input the values we want in our certificate.</p>
-<pre><code>nano graylog-openssl.cnf
+<pre><code class="language-bash">nano graylog-openssl.cnf
 </code></pre>
 <p>Here is an example configuration file, again replace the values in this to match your network:</p>
 <p>Make sure you know what to put in the [ dn ] fields. For example, country must be 2 letters, more or less and youll get errors. Be careful and look stuff up if your unsure.</p>
-<pre><code>[ req ]
+<pre><code class="language-bash">[ req ]
 default_bits       = 4096
 prompt             = no
 default_md         = sha256
@@ -403,10 +403,10 @@ DNS.2 = &lt;SECONDARY_HOST&gt;
 IP.1  = &lt;IP&gt;
 </code></pre>
 <p>Ok with that we can move to create our Certificate Signing Request(CSR). This is the file we generate and send to our Certificate Authrotiy(CA) to get our certificate issued.</p>
-<pre><code>openssl req -new -key private.key -out graylog.csr -config graylog-openssl.cnf
+<pre><code class="language-bash">openssl req -new -key private.key -out graylog.csr -config graylog-openssl.cnf
 </code></pre>
 <p>With that we can have our Root CA sign our CSR to generate our certificate. We will be using the Wazuh Root CA here for simplicity. Be sure the file paths to the Wazuh Root CA are correct.</p>
-<pre><code>openssl x509 -req \
+<pre><code class="language-bash">openssl x509 -req \
   -in graylog.csr \
   -CA ../../config/wazuh_indexer_ssl_certs/root-ca.pem \
   -CAkey ../../config/wazuh_indexer_ssl_certs/root-ca.key \
@@ -418,40 +418,40 @@ IP.1  = &lt;IP&gt;
   -extfile graylog-openssl.cnf
 </code></pre>
 <p>Now we just want to copy the Wazuh Root CA into our graylog volume (the certs directory we are currently in) so we can trust it within Graylog. We also do this because we have to build a chain file which Graylog will use for TLS. We can do that by running the following:</p>
-<pre><code>cp ../../config/wazuh_indexer_ssl_certs/root-ca.pem public.chain.pem
+<pre><code class="language-bash">cp ../../config/wazuh_indexer_ssl_certs/root-ca.pem public.chain.pem
 
 cat public.cert.pem public.chain.pem &gt; public.pem
 
 chmod 664 public.pem
 </code></pre>
 <p>Now we just want to perform a quick verification to ensure our cert looks correct:</p>
-<pre><code>openssl x509 -in public.pem -text -noout | grep -A2 &quot;Subject Alternative Name&quot;
+<pre><code class="language-bash">openssl x509 -in public.pem -text -noout | grep -A2 &quot;Subject Alternative Name&quot;
 </code></pre>
 <p>We now want to just add the following volumes to Graylog in our docker compose. So our Volumes for Graylog should look like this:</p>
-<pre><code>    volumes:
-      - &quot;graylog_data:/usr/share/graylog/data/data&quot;
-      - &quot;graylog_journal:/usr/share/graylog/data/journal&quot;
-      - &quot;./config/wazuh_indexer_ssl_certs/root-ca.pem:/etc/ssl/certs/wazuh-root-ca.pem:ro&quot;
-      - &quot;./graylog/truststore:/truststore&quot;
-      - &quot;./graylog/certs:/usr/share/graylog/data/config/certs:ro&quot;
-      - &quot;./graylog/tls:/opt/graylog/tls:ro&quot;
+<pre><code class="language-yml">volumes:
+    - &quot;graylog_data:/usr/share/graylog/data/data&quot;
+    - &quot;graylog_journal:/usr/share/graylog/data/journal&quot;
+    - &quot;./config/wazuh_indexer_ssl_certs/root-ca.pem:/etc/ssl/certs/wazuh-root-ca.pem:ro&quot;
+    - &quot;./graylog/truststore:/truststore&quot;
+    - &quot;./graylog/certs:/usr/share/graylog/data/config/certs:ro&quot;
+    - &quot;./graylog/tls:/opt/graylog/tls:ro&quot;
 </code></pre>
 <h3>Trusting the Root VA in Wazuh</h3>
 <p>Now we need to trust the Root CA in Wazuh so we can access the indexer.</p>
 <p>First, restart the Graylog container so it sees the changes we made:</p>
-<pre><code>docker compose restart graylog
+<pre><code class="language-bash">docker compose restart graylog
 </code></pre>
 <p>Then run the following to ensure our certificates exist within our container:</p>
-<pre><code>docker exec -it --user root single-node-graylog-1 ls -l /etc/ssl/certs/wazuh-root-ca.pem
+<pre><code class="language-bash">docker exec -it --user root single-node-graylog-1 ls -l /etc/ssl/certs/wazuh-root-ca.pem
 </code></pre>
 <p>Copy existing trusted certificates into our new truststore:</p>
-<pre><code>docker exec --user root -it single-node-graylog-1 cp /opt/java/openjdk/lib/security/cacerts /truststore/opensearch.jks
+<pre><code class="language-bash">docker exec --user root -it single-node-graylog-1 cp /opt/java/openjdk/lib/security/cacerts /truststore/opensearch.jks
 </code></pre>
 <p>Now we get a shell on our Graylog container:</p>
-<pre><code>docker exec -it --user root single-node-graylog-1 bash
+<pre><code class="language-bash">docker exec -it --user root single-node-graylog-1 bash
 </code></pre>
 <p>Now that we are in the container we just need to run the following to get the Root CA trusted:</p>
-<pre><code>/opt/java/openjdk/bin/keytool -importcert \
+<pre><code class="language-bash">/opt/java/openjdk/bin/keytool -importcert \
   -alias wazuh-root-ca \
   -file /etc/ssl/certs/wazuh-root-ca.pem \
   -keystore /truststore/opensearch.jks \
@@ -464,13 +464,13 @@ chmod 664 public.pem
 </code></pre>
 <p>The output of that last command should see something that includes: wazuh-root-ca, trustedCertEntry. If thats the case we should be good to go.</p>
 <p>Make sure you have the following envionrmnet variables in your compose file, and also make sure you change the publish URI and external URL to use https if they do not already:</p>
-<pre><code>      # enable HTTPS
+<pre><code class="language-bash">      # enable HTTPS
       GRAYLOG_HTTP_ENABLE_TLS: &quot;true&quot;
       GRAYLOG_HTTP_TLS_CERT_FILE: &quot;/usr/share/graylog/data/config/certs/public.pem&quot;
       GRAYLOG_HTTP_TLS_KEY_FILE: &quot;/usr/share/graylog/data/config/certs/private.key&quot;
 </code></pre>
 <p>Now we can do one final:</p>
-<pre><code>exit (get out of Graylog container)
+<pre><code class="language-bash">exit (get out of Graylog container)
 
 docker compose down graylog
 
@@ -489,25 +489,25 @@ docker compose up graylog -d
 <p>Again be sure you deploy sysmon (I recommend this config as a starting point: <a href="https://github.com/SwiftOnSecurity/sysmon-config">https://github.com/SwiftOnSecurity/sysmon-config</a>) and also deploy at least the sysmon rules to Wazuh.</p>
 <p>I'm not going to go over getting SocFortress running in much detail as it should be fairly straightforward. Clone the <a href="https://github.com/socfortress/CoPilot">repo</a>, follow the docs, point it to Graylog, Wazuh and Grafana, and thats really it. Grafana is kind of the same, it should be easy to get up and running, and in a bit I will tell you everything you have to do to make the SocFortress dashboard deployment be seamless. I used this Grafana image: grafana/grafana:10.4.1 so I would recommend just using that if you follow this guide to avoid any potetnial version mishaps. You must have above version 10.4.0 for Grafana. Honestly, I dont even know if the SocFortress .env even matters a ton, I think mine contains a bunch of old credentials, but since you can configure connectors in the CoPilot web UI I believe that overrides your .env. Just something to consider if you mess up the .env.</p>
 <p>You can use this simple Grafana compose file below:</p>
-<pre><code>services:
-  grafana:
-    image: grafana/grafana:10.4.1
-    container_name: grafana
-    ports:
-      - &quot;3000:3000&quot;
-    environment:
-      GF_SECURITY_ADMIN_USER: admin
-      GF_SECURITY_ADMIN_PASSWORD: &lt;PASSWORD&gt;
-      GF_AUTH_ANONYMOUS_ENABLED: &quot;false&quot;
-      GF_SERVER_DOMAIN: &quot;&lt;IP&gt;&quot;
-      GF_SERVER_ROOT_URL: &quot;http://&lt;IP&gt;:3000/&quot;
-      GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS: &quot;*&quot;
-    volumes:
-      - ./grafana/data:/var/lib/grafana
-      # - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
-      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
-      - ./grafana/plugins:/var/lib/grafana/plugins
-    restart: unless-stopped
+<pre><code class="language-yml">services:
+    grafana:
+        image: grafana/grafana:10.4.1
+        container_name: grafana
+        ports:
+            - &quot;3000:3000&quot;
+        environment:
+            GF_SECURITY_ADMIN_USER: admin
+            GF_SECURITY_ADMIN_PASSWORD: &lt;PASSWORD&gt;
+            GF_AUTH_ANONYMOUS_ENABLED: &quot;false&quot;
+            GF_SERVER_DOMAIN: &quot;&lt;IP&gt;&quot;
+            GF_SERVER_ROOT_URL: &quot;http://&lt;IP&gt;:3000/&quot;
+            GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS: &quot;*&quot;
+        volumes:
+            - ./grafana/data:/var/lib/grafana
+            # - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+            - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+            - ./grafana/plugins:/var/lib/grafana/plugins
+        restart: unless-stopped
 </code></pre>
 <h3>Provison CoPilot Customer</h3>
 <p>Ok cool, so now we should have Graylog recieving Wazuh logs via Fluent-Bit, Wazuh running properly, SocFortress running, and Grafana also running. Log into SocFortress and go to Connectors, you should make sure the connectors for Wazuh Indexer, Manager, and Graylog are all verified. They will only be verified once they have confirmed the services are live and accessible so make sure those things are running, and you provided the correct URL and credentials for each.</p>
@@ -527,7 +527,7 @@ docker compose up graylog -d
 <p>I'm not sure what the largest number of values in the rule_groups field is, but the most I saw was 4. So I created 5 rules, each on creates a rule_group<num> field up to 5 values in rule_groups.</p>
 <p>So again, we just have to create 5 rules to start heres what each should look like:</p>
 <p>From here we can begin to configure our SIEM which we will be going over in many future posts that will probably be more fun than this one. I hope you found this useful, I would love to hear from you with any questions, critiques, or comments, links to reach me are on the website. Thank you for reading.</p>
-<pre><code>rule &quot;rule_groups Split #1&quot;
+<pre><code class="language-bash">rule &quot;rule_groups Split #1&quot;
 when
   has_field(&quot;rule_groups&quot;)
 then

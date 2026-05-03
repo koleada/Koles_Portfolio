@@ -1,9 +1,9 @@
 [
 
   {
-    "title": "Building An Enterprise-Grade, Open Source SIEM With 1 Command (almost)",
+    "title": "Building An Enterprise-Grade, Open Source Security Operations Center Part 1",
     "date": "2026-04-25",
-    "description": "In this post, I will show you how to create an enterprise grade Security Information and Event Management system with one command. Our SIEM is fully open source and infinitly customizeable.",
+    "description": "In this post, I will show you how to create an enterprise grade Security Information and Event Management system with one command. Our SIEM is fully open source and infinitly customizeable. This is part 1 of a series where we build an open source SOC.",
     "tags": ["Wazuh","SOCFortress CoPilot","Graylog","SIEM"],
     "image": "https://raw.githubusercontent.com/koleada/Koles_Portfolio/refs/heads/main/images/SIEM.jpg",
     "url": "/writeups/posts/siemBuild/"
