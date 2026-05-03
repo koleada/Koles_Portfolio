@@ -1,6 +1,15 @@
 [
 
   {
+    "title": "Building An Enterprise-Grade, Open Source SIEM With 1 Command (almost)",
+    "date": "2026-04-25",
+    "description": "In this post, I will show you how to create an enterprise grade Security Information and Event Management system with one command. Our SIEM is fully open source and infinitly customizeable.",
+    "tags": ["Wazuh","SOCFortress CoPilot","Graylog","SIEM"],
+    "image": "https://raw.githubusercontent.com/koleada/Koles_Portfolio/refs/heads/main/images/SIEM.jpg",
+    "url": "/writeups/posts/siemBuild/"
+  },
+
+  {
     "title": "Yara-X Automated Malware Detection With Wazuh",
     "date": "2026-04-04",
     "description": "In this post, I show how to integrate the powerful pattern matching and detection tool Yara-X with Wazuh to facilitate automated, customized malware scanning and quarantining on Linux machines.",
