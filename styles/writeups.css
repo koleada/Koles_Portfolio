@@ -26,8 +26,8 @@ body {
 }
 
 #blogGrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 2vw;
 
     max-width: 100vw;
@@ -38,7 +38,7 @@ body {
 }
 
 .blogCardLink {
-    width: 40vw;
+    width: 70vw;
     box-sizing: border-box;
     padding: 1vh 1vw;
     border-radius: 20px;
@@ -177,6 +177,7 @@ body {
 
 .blogCardTitle {
     font-size: calc(10px + 1vmax);
+    line-height: calc(12px + 1vmax);
     font-weight: 700;
     margin: 0;
 }

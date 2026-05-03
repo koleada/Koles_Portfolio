@@ -91,18 +91,18 @@ nodes:
   # Wazuh indexer server nodes
   indexer:
     - name: wazuh.indexer
-      ip: wazuh.indexer
+      ip: <INDEXER_IP>
 
   # Wazuh server nodes
   # Use node_type only with more than one Wazuh manager
   server:
     - name: wazuh.manager
-      ip: wazuh.manager
+      ip: <MANAGER_IP>
 
   # Wazuh dashboard node
   dashboard:
     - name: wazuh.dashboard
-      ip: wazuh.manager
+      ip: <DASHBOARD_IP>
 ```
 
 Note this config expects everything to be on the same machine, if that is not the case, stuff will have to change.
@@ -268,7 +268,7 @@ services:
       GRAYLOG_ROOT_PASSWORD_SHA2: "${GRAYLOG_ROOT_PASSWORD_SHA2:?Please configure GRAYLOG_ROOT_PASSWORD_SHA2 in the .env file}"
       GRAYLOG_HTTP_BIND_ADDRESS: "0.0.0.0:9000"
       GRAYLOG_HTTP_EXTERNAL_URI: "https://<IP_OR_HOST>:9000/"
-      GRAYLOG_ELASTICSEARCH_HOSTS: "https://admin:<ADMIN_PASS>@wazuh.indexer:9200"
+      GRAYLOG_ELASTICSEARCH_HOSTS: "https://admin:<ADMIN_PASS>@<INDEXER_IP>:9200"
       GRAYLOG_ELASTICSEARCH_SSL_ENABLED: "true"
       GRAYLOG_ELASTICSEARCH_SSL_CERTIFICATE_AUTHORITIES: "/etc/ssl/certs/wazuh-root-ca.pem"
       GRAYLOG_MONGODB_URI: "mongodb://mongodb:27017/graylog"

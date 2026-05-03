@@ -97,18 +97,18 @@ nano certs.yml
   # Wazuh indexer server nodes
   indexer:
     - name: wazuh.indexer
-      ip: wazuh.indexer
+      ip: &lt;INDEXER_IP&gt;
 
   # Wazuh server nodes
   # Use node_type only with more than one Wazuh manager
   server:
     - name: wazuh.manager
-      ip: wazuh.manager
+      ip: &lt;MANAGER_IP&gt;
 
   # Wazuh dashboard node
   dashboard:
     - name: wazuh.dashboard
-      ip: wazuh.manager
+      ip: &lt;DASHBOARD_IP&gt;
 </code></pre>
 <p>Note this config expects everything to be on the same machine, if that is not the case, stuff will have to change.</p>
 <p>This part is super necessary, do not skip it, your install will break. I believe this basically makes the indexer advertise as elasticsearch instead of opensearch. That could be very wrong but in all honesty the time it took me to figure this out makes me not even care about what this line does. All I know is that for this setup to work it must be removed, kapish?</p>
@@ -254,7 +254,7 @@ docker compose -f generate-indexer-certs.yml run --rm generator
       GRAYLOG_ROOT_PASSWORD_SHA2: &quot;${GRAYLOG_ROOT_PASSWORD_SHA2:?Please configure GRAYLOG_ROOT_PASSWORD_SHA2 in the .env file}&quot;
       GRAYLOG_HTTP_BIND_ADDRESS: &quot;0.0.0.0:9000&quot;
       GRAYLOG_HTTP_EXTERNAL_URI: &quot;https://&lt;IP_OR_HOST&gt;:9000/&quot;
-      GRAYLOG_ELASTICSEARCH_HOSTS: &quot;https://admin:&lt;ADMIN_PASS&gt;@wazuh.indexer:9200&quot;
+      GRAYLOG_ELASTICSEARCH_HOSTS: &quot;https://admin:&lt;ADMIN_PASS&gt;@&lt;INDEXER_IP&gt;:9200&quot;
       GRAYLOG_ELASTICSEARCH_SSL_ENABLED: &quot;true&quot;
       GRAYLOG_ELASTICSEARCH_SSL_CERTIFICATE_AUTHORITIES: &quot;/etc/ssl/certs/wazuh-root-ca.pem&quot;
       GRAYLOG_MONGODB_URI: &quot;mongodb://mongodb:27017/graylog&quot;
