@@ -1,5 +1,5 @@
 ---
-title: "Building An Enterprise-Grade, Open Source Security Operations Center Part 1"
+title: "Building An Enterprise-Grade, Open Source Security Operations Center - Part 1"
 
 date: "2026-04-25"
 
